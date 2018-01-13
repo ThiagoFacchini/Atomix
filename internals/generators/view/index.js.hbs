@@ -1,0 +1,141 @@
+// @flow
+
+// --------------------------------------------------------
+// VIEWS - Views consist mostly of groups of organisms
+// stiched together to form pages. It's here where we start
+// to see the design coming together and start seeing like
+// a layout in action.
+// --------------------------------------------------------
+
+// {{ properCase name }}
+
+// --------------------------------------------------------
+// REACT / REDUX IMPORTS
+// --------------------------------------------------------
+import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import selectView{{properCase name}} from './redux/selectors'
+
+import {
+	selectTheme,
+	selectBrowsingDevice,
+} from './../../structural/App/selectors'
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// INTERNATIONALISATION SUPPORT
+// --------------------------------------------------------
+import { injectIntl } from 'react-intl'
+import messages from './intl/messages'
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// STYLING IMPORTS
+// --------------------------------------------------------
+import classNames from 'classnames'
+import styles from './styles.css'
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// 3RD PARTY REACT LIBRARY IMPORTS
+// --------------------------------------------------------
+import Helmet from 'react-helmet'
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// ATOM / MOLECULE / ORGANISM IMPORTS
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// VIEW PROPERTIES DEFINITION
+// --------------------------------------------------------
+type PropTypes = {}
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// DEFINES VIEW DEFAULT PROPERTIES
+// --------------------------------------------------------
+const _defaultProps = {}
+// --------------------------------------------------------
+
+export class {{ properCase name }} extends React.Component {
+	propTypes: PropTypes
+
+	static defaultProps: PropTypes
+	// --------------------------------------------------------
+	// VIEW STATE DEFINITION
+	// --------------------------------------------------------
+	state: {}
+	// --------------------------------------------------------
+
+	// --------------------------------------------------------
+	// VIEW PRIVATE FUNCTION DECLARATIONS
+	// --------------------------------------------------------
+	// --------------------------------------------------------
+
+	// --------------------------------------------------------
+	// VIEW PRIVATE FUNCTIONS
+	// --------------------------------------------------------
+	// --------------------------------------------------------
+
+	// --------------------------------------------------------
+	// REACT CONSTRUCTOR
+	// --------------------------------------------------------
+	constructor (props: Object) {
+		super(props)
+
+		this.state = {}
+	}
+	// --------------------------------------------------------
+
+	// --------------------------------------------------------
+	// REACT LIFE CYCLES
+	// --------------------------------------------------------
+	componentWillMount () {}
+
+	componentDidMount () {}
+
+	render () {
+		return (
+			<div className={{curly true}}classNames(styles.{{ lowerCase name }}){{curly}}>
+				<Helmet
+					title="{{properCase name}}"
+					meta={{curly true}}[ {{curly true}} name: 'description', content: 'Description of {{properCase name}}' {{curly}} ]{{curly}}
+				/>
+			</div>
+		)
+	}
+	// --------------------------------------------------------
+
+}
+
+// --------------------------------------------------------
+// ACTIONS MAP
+// --------------------------------------------------------
+function mapDispatchToProps (dispatch) {
+	return {
+		actions: {
+			dispatch,
+		}
+	}
+}
+
+// --------------------------------------------------------
+// SELECTORS MAP
+// --------------------------------------------------------
+const mapStateToProps = createStructuredSelector({
+	selector{{properCase name}}: selectView{{properCase name}}(),
+	selectorTheme: selectTheme(),
+	selectorBrowsingDevice: selectBrowsingDevice(),
+})
+
+// --------------------------------------------------------
+// SETTING CONTAINER.DEFAULTPROPS
+// --------------------------------------------------------
+{{properCase name}}.defaultProps = _defaultProps
+// --------------------------------------------------------
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl({{ properCase name }}))

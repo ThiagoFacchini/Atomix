@@ -1,0 +1,33 @@
+@import '../../styles/themesManager.css';
+
+.title {
+	display: block;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	& .content {
+		/* USER SELECTABLE */
+		&.notUserSelectable {
+			user-select: none;
+			cursor: default;
+		}
+
+		/* ALIGNMENT */
+		&.left {
+			text-align: left;
+		}
+
+		&.center {
+			text-align: center;
+		}
+
+		&.right {
+			text-align: right;
+		}
+
+		&.justify {
+			text-align: justify;
+		}
+	}
+}

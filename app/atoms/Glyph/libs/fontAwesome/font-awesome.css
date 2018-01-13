@@ -1,0 +1,2364 @@
+@font-face {
+	font-family: font-awesome;
+	src: url('./font-awesome.eot');
+	src:
+		url('./font-awesome.eot?#iefix') format('embedded-opentype'),
+		url('./font-awesome.woff') format('woff'),
+		url('./font-awesome.ttf') format('truetype'),
+		url('./font-awesome.svg#font-awesome') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^='fontawesome-']:before,
+[class*='fontawesome-']:before {
+	font-family: font-awesome !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fontawesome-500px:before {
+	content: '\61';
+}
+
+.fontawesome-adjust:before {
+	content: '\62';
+}
+
+.fontawesome-adn:before {
+	content: '\63';
+}
+
+.fontawesome-align-center:before {
+	content: '\64';
+}
+
+.fontawesome-align-justify:before {
+	content: '\65';
+}
+
+.fontawesome-align-left:before {
+	content: '\66';
+}
+
+.fontawesome-align-right:before {
+	content: '\67';
+}
+
+.fontawesome-amazon:before {
+	content: '\68';
+}
+
+.fontawesome-ambulance:before {
+	content: '\69';
+}
+
+.fontawesome-anchor:before {
+	content: '\6a';
+}
+
+.fontawesome-android:before {
+	content: '\6b';
+}
+
+.fontawesome-angellist:before {
+	content: '\6c';
+}
+
+.fontawesome-angle-double-down:before {
+	content: '\6d';
+}
+
+.fontawesome-angle-double-left:before {
+	content: '\6e';
+}
+
+.fontawesome-angle-double-right:before {
+	content: '\6f';
+}
+
+.fontawesome-angle-double-up:before {
+	content: '\70';
+}
+
+.fontawesome-angle-down:before {
+	content: '\71';
+}
+
+.fontawesome-angle-left:before {
+	content: '\72';
+}
+
+.fontawesome-angle-right:before {
+	content: '\73';
+}
+
+.fontawesome-angle-up:before {
+	content: '\74';
+}
+
+.fontawesome-apple:before {
+	content: '\75';
+}
+
+.fontawesome-archive:before {
+	content: '\76';
+}
+
+.fontawesome-area-chart:before {
+	content: '\77';
+}
+
+.fontawesome-arrow-circle-down:before {
+	content: '\78';
+}
+
+.fontawesome-arrow-circle-left:before {
+	content: '\79';
+}
+
+.fontawesome-arrow-circle-o-down:before {
+	content: '\7a';
+}
+
+.fontawesome-arrow-circle-o-left:before {
+	content: '\41';
+}
+
+.fontawesome-arrow-circle-o-right:before {
+	content: '\42';
+}
+
+.fontawesome-arrow-circle-o-up:before {
+	content: '\43';
+}
+
+.fontawesome-arrow-circle-right:before {
+	content: '\44';
+}
+
+.fontawesome-arrow-circle-up:before {
+	content: '\45';
+}
+
+.fontawesome-arrow-down:before {
+	content: '\46';
+}
+
+.fontawesome-arrow-left:before {
+	content: '\47';
+}
+
+.fontawesome-arrow-right:before {
+	content: '\48';
+}
+
+.fontawesome-arrow-up:before {
+	content: '\49';
+}
+
+.fontawesome-arrows:before {
+	content: '\4a';
+}
+
+.fontawesome-arrows-alt:before {
+	content: '\4b';
+}
+
+.fontawesome-arrows-h:before {
+	content: '\4c';
+}
+
+.fontawesome-arrows-v:before {
+	content: '\4d';
+}
+
+.fontawesome-asterisk:before {
+	content: '\4e';
+}
+
+.fontawesome-at:before {
+	content: '\4f';
+}
+
+.fontawesome-backward:before {
+	content: '\50';
+}
+
+.fontawesome-balance-scale:before {
+	content: '\51';
+}
+
+.fontawesome-ban:before {
+	content: '\52';
+}
+
+.fontawesome-bar-chart:before {
+	content: '\53';
+}
+
+.fontawesome-barcode:before {
+	content: '\54';
+}
+
+.fontawesome-bars:before {
+	content: '\55';
+}
+
+.fontawesome-battery-empty:before {
+	content: '\56';
+}
+
+.fontawesome-battery-full:before {
+	content: '\57';
+}
+
+.fontawesome-battery-half:before {
+	content: '\58';
+}
+
+.fontawesome-battery-quarter:before {
+	content: '\59';
+}
+
+.fontawesome-battery-three-quarters:before {
+	content: '\5a';
+}
+
+.fontawesome-bed:before {
+	content: '\30';
+}
+
+.fontawesome-beer:before {
+	content: '\31';
+}
+
+.fontawesome-behance:before {
+	content: '\32';
+}
+
+.fontawesome-behance-square:before {
+	content: '\33';
+}
+
+.fontawesome-bell:before {
+	content: '\34';
+}
+
+.fontawesome-bell-o:before {
+	content: '\35';
+}
+
+.fontawesome-bell-slash:before {
+	content: '\36';
+}
+
+.fontawesome-bell-slash-o:before {
+	content: '\37';
+}
+
+.fontawesome-bicycle:before {
+	content: '\38';
+}
+
+.fontawesome-binoculars:before {
+	content: '\39';
+}
+
+.fontawesome-birthday-cake:before {
+	content: '\21';
+}
+
+.fontawesome-bitbucket:before {
+	content: '\22';
+}
+
+.fontawesome-bitbucket-square:before {
+	content: '\23';
+}
+
+.fontawesome-black-tie:before {
+	content: '\24';
+}
+
+.fontawesome-bold:before {
+	content: '\25';
+}
+
+.fontawesome-bolt:before {
+	content: '\26';
+}
+
+.fontawesome-bomb:before {
+	content: '\27';
+}
+
+.fontawesome-book:before {
+	content: '\28';
+}
+
+.fontawesome-bookmark:before {
+	content: '\29';
+}
+
+.fontawesome-bookmark-o:before {
+	content: '\2a';
+}
+
+.fontawesome-briefcase:before {
+	content: '\2b';
+}
+
+.fontawesome-btc:before {
+	content: '\2c';
+}
+
+.fontawesome-bug:before {
+	content: '\2d';
+}
+
+.fontawesome-building:before {
+	content: '\2e';
+}
+
+.fontawesome-building-o:before {
+	content: '\2f';
+}
+
+.fontawesome-bullhorn:before {
+	content: '\3a';
+}
+
+.fontawesome-bullseye:before {
+	content: '\3b';
+}
+
+.fontawesome-bus:before {
+	content: '\3c';
+}
+
+.fontawesome-buysellads:before {
+	content: '\3d';
+}
+
+.fontawesome-calculator:before {
+	content: '\3e';
+}
+
+.fontawesome-calendar:before {
+	content: '\3f';
+}
+
+.fontawesome-calendar-check-o:before {
+	content: '\40';
+}
+
+.fontawesome-calendar-minus-o:before {
+	content: '\5b';
+}
+
+.fontawesome-calendar-o:before {
+	content: '\5d';
+}
+
+.fontawesome-calendar-plus-o:before {
+	content: '\5e';
+}
+
+.fontawesome-calendar-times-o:before {
+	content: '\5f';
+}
+
+.fontawesome-camera:before {
+	content: '\60';
+}
+
+.fontawesome-camera-retro:before {
+	content: '\7b';
+}
+
+.fontawesome-car:before {
+	content: '\7c';
+}
+
+.fontawesome-caret-down:before {
+	content: '\7d';
+}
+
+.fontawesome-caret-left:before {
+	content: '\7e';
+}
+
+.fontawesome-caret-right:before {
+	content: '\5c';
+}
+
+.fontawesome-caret-square-o-down:before {
+	content: '\e000';
+}
+
+.fontawesome-caret-square-o-left:before {
+	content: '\e001';
+}
+
+.fontawesome-caret-square-o-right:before {
+	content: '\e002';
+}
+
+.fontawesome-caret-square-o-up:before {
+	content: '\e003';
+}
+
+.fontawesome-caret-up:before {
+	content: '\e004';
+}
+
+.fontawesome-cart-arrow-down:before {
+	content: '\e005';
+}
+
+.fontawesome-cart-plus:before {
+	content: '\e006';
+}
+
+.fontawesome-cc:before {
+	content: '\e007';
+}
+
+.fontawesome-cc-amex:before {
+	content: '\e008';
+}
+
+.fontawesome-cc-diners-club:before {
+	content: '\e009';
+}
+
+.fontawesome-cc-discover:before {
+	content: '\e00a';
+}
+
+.fontawesome-cc-jcb:before {
+	content: '\e00b';
+}
+
+.fontawesome-cc-mastercard:before {
+	content: '\e00c';
+}
+
+.fontawesome-cc-paypal:before {
+	content: '\e00d';
+}
+
+.fontawesome-cc-stripe:before {
+	content: '\e00e';
+}
+
+.fontawesome-cc-visa:before {
+	content: '\e00f';
+}
+
+.fontawesome-certificate:before {
+	content: '\e010';
+}
+
+.fontawesome-chain-broken:before {
+	content: '\e011';
+}
+
+.fontawesome-check:before {
+	content: '\e012';
+}
+
+.fontawesome-check-circle:before {
+	content: '\e013';
+}
+
+.fontawesome-check-circle-o:before {
+	content: '\e014';
+}
+
+.fontawesome-check-square:before {
+	content: '\e015';
+}
+
+.fontawesome-check-square-o:before {
+	content: '\e016';
+}
+
+.fontawesome-chevron-circle-down:before {
+	content: '\e017';
+}
+
+.fontawesome-chevron-circle-left:before {
+	content: '\e018';
+}
+
+.fontawesome-chevron-circle-right:before {
+	content: '\e019';
+}
+
+.fontawesome-chevron-circle-up:before {
+	content: '\e01a';
+}
+
+.fontawesome-chevron-down:before {
+	content: '\e01b';
+}
+
+.fontawesome-chevron-left:before {
+	content: '\e01c';
+}
+
+.fontawesome-chevron-right:before {
+	content: '\e01d';
+}
+
+.fontawesome-chevron-up:before {
+	content: '\e01e';
+}
+
+.fontawesome-child:before {
+	content: '\e01f';
+}
+
+.fontawesome-chrome:before {
+	content: '\e020';
+}
+
+.fontawesome-circle:before {
+	content: '\e021';
+}
+
+.fontawesome-circle-o:before {
+	content: '\e022';
+}
+
+.fontawesome-circle-o-notch:before {
+	content: '\e023';
+}
+
+.fontawesome-circle-thin:before {
+	content: '\e024';
+}
+
+.fontawesome-clipboard:before {
+	content: '\e025';
+}
+
+.fontawesome-clock-o:before {
+	content: '\e026';
+}
+
+.fontawesome-clone:before {
+	content: '\e027';
+}
+
+.fontawesome-cloud:before {
+	content: '\e028';
+}
+
+.fontawesome-cloud-download:before {
+	content: '\e029';
+}
+
+.fontawesome-cloud-upload:before {
+	content: '\e02a';
+}
+
+.fontawesome-code:before {
+	content: '\e02b';
+}
+
+.fontawesome-code-fork:before {
+	content: '\e02c';
+}
+
+.fontawesome-codepen:before {
+	content: '\e02d';
+}
+
+.fontawesome-coffee:before {
+	content: '\e02e';
+}
+
+.fontawesome-cog:before {
+	content: '\e02f';
+}
+
+.fontawesome-cogs:before {
+	content: '\e030';
+}
+
+.fontawesome-columns:before {
+	content: '\e031';
+}
+
+.fontawesome-comment:before {
+	content: '\e032';
+}
+
+.fontawesome-comment-o:before {
+	content: '\e033';
+}
+
+.fontawesome-commenting:before {
+	content: '\e034';
+}
+
+.fontawesome-commenting-o:before {
+	content: '\e035';
+}
+
+.fontawesome-comments:before {
+	content: '\e036';
+}
+
+.fontawesome-comments-o:before {
+	content: '\e037';
+}
+
+.fontawesome-compass:before {
+	content: '\e038';
+}
+
+.fontawesome-compress:before {
+	content: '\e039';
+}
+
+.fontawesome-connectdevelop:before {
+	content: '\e03a';
+}
+
+.fontawesome-contao:before {
+	content: '\e03b';
+}
+
+.fontawesome-copyright:before {
+	content: '\e03c';
+}
+
+.fontawesome-creative-commons:before {
+	content: '\e03d';
+}
+
+.fontawesome-credit-card:before {
+	content: '\e03e';
+}
+
+.fontawesome-crop:before {
+	content: '\e03f';
+}
+
+.fontawesome-crosshairs:before {
+	content: '\e040';
+}
+
+.fontawesome-css3:before {
+	content: '\e041';
+}
+
+.fontawesome-cube:before {
+	content: '\e042';
+}
+
+.fontawesome-cubes:before {
+	content: '\e043';
+}
+
+.fontawesome-cutlery:before {
+	content: '\e044';
+}
+
+.fontawesome-dashcube:before {
+	content: '\e045';
+}
+
+.fontawesome-database:before {
+	content: '\e046';
+}
+
+.fontawesome-delicious:before {
+	content: '\e047';
+}
+
+.fontawesome-desktop:before {
+	content: '\e048';
+}
+
+.fontawesome-deviantart:before {
+	content: '\e049';
+}
+
+.fontawesome-diamond:before {
+	content: '\e04a';
+}
+
+.fontawesome-digg:before {
+	content: '\e04b';
+}
+
+.fontawesome-dot-circle-o:before {
+	content: '\e04c';
+}
+
+.fontawesome-download:before {
+	content: '\e04d';
+}
+
+.fontawesome-dribbble:before {
+	content: '\e04e';
+}
+
+.fontawesome-dropbox:before {
+	content: '\e04f';
+}
+
+.fontawesome-drupal:before {
+	content: '\e050';
+}
+
+.fontawesome-eject:before {
+	content: '\e051';
+}
+
+.fontawesome-ellipsis-h:before {
+	content: '\e052';
+}
+
+.fontawesome-ellipsis-v:before {
+	content: '\e053';
+}
+
+.fontawesome-empire:before {
+	content: '\e054';
+}
+
+.fontawesome-envelope:before {
+	content: '\e055';
+}
+
+.fontawesome-envelope-o:before {
+	content: '\e056';
+}
+
+.fontawesome-envelope-square:before {
+	content: '\e057';
+}
+
+.fontawesome-eraser:before {
+	content: '\e058';
+}
+
+.fontawesome-eur:before {
+	content: '\e059';
+}
+
+.fontawesome-exchange:before {
+	content: '\e05a';
+}
+
+.fontawesome-exclamation:before {
+	content: '\e05b';
+}
+
+.fontawesome-exclamation-circle:before {
+	content: '\e05c';
+}
+
+.fontawesome-exclamation-triangle:before {
+	content: '\e05d';
+}
+
+.fontawesome-expand:before {
+	content: '\e05e';
+}
+
+.fontawesome-expeditedssl:before {
+	content: '\e05f';
+}
+
+.fontawesome-external-link:before {
+	content: '\e060';
+}
+
+.fontawesome-external-link-square:before {
+	content: '\e061';
+}
+
+.fontawesome-eye:before {
+	content: '\e062';
+}
+
+.fontawesome-eye-slash:before {
+	content: '\e063';
+}
+
+.fontawesome-eyedropper:before {
+	content: '\e064';
+}
+
+.fontawesome-facebook:before {
+	content: '\e065';
+}
+
+.fontawesome-facebook-official:before {
+	content: '\e066';
+}
+
+.fontawesome-facebook-square:before {
+	content: '\e067';
+}
+
+.fontawesome-fast-backward:before {
+	content: '\e068';
+}
+
+.fontawesome-fast-forward:before {
+	content: '\e069';
+}
+
+.fontawesome-fax:before {
+	content: '\e06a';
+}
+
+.fontawesome-female:before {
+	content: '\e06b';
+}
+
+.fontawesome-fighter-jet:before {
+	content: '\e06c';
+}
+
+.fontawesome-file:before {
+	content: '\e06d';
+}
+
+.fontawesome-file-archive-o:before {
+	content: '\e06e';
+}
+
+.fontawesome-file-audio-o:before {
+	content: '\e06f';
+}
+
+.fontawesome-file-code-o:before {
+	content: '\e070';
+}
+
+.fontawesome-file-excel-o:before {
+	content: '\e071';
+}
+
+.fontawesome-file-image-o:before {
+	content: '\e072';
+}
+
+.fontawesome-file-o:before {
+	content: '\e073';
+}
+
+.fontawesome-file-pdf-o:before {
+	content: '\e074';
+}
+
+.fontawesome-file-powerpoint-o:before {
+	content: '\e075';
+}
+
+.fontawesome-file-text:before {
+	content: '\e076';
+}
+
+.fontawesome-file-text-o:before {
+	content: '\e077';
+}
+
+.fontawesome-file-video-o:before {
+	content: '\e078';
+}
+
+.fontawesome-file-word-o:before {
+	content: '\e079';
+}
+
+.fontawesome-files-o:before {
+	content: '\e07a';
+}
+
+.fontawesome-film:before {
+	content: '\e07b';
+}
+
+.fontawesome-filter:before {
+	content: '\e07c';
+}
+
+.fontawesome-fire:before {
+	content: '\e07d';
+}
+
+.fontawesome-fire-extinguisher:before {
+	content: '\e07e';
+}
+
+.fontawesome-firefox:before {
+	content: '\e07f';
+}
+
+.fontawesome-flag:before {
+	content: '\e080';
+}
+
+.fontawesome-flag-checkered:before {
+	content: '\e081';
+}
+
+.fontawesome-flag-o:before {
+	content: '\e082';
+}
+
+.fontawesome-flask:before {
+	content: '\e083';
+}
+
+.fontawesome-flickr:before {
+	content: '\e084';
+}
+
+.fontawesome-floppy-o:before {
+	content: '\e085';
+}
+
+.fontawesome-folder:before {
+	content: '\e086';
+}
+
+.fontawesome-folder-o:before {
+	content: '\e087';
+}
+
+.fontawesome-folder-open:before {
+	content: '\e088';
+}
+
+.fontawesome-folder-open-o:before {
+	content: '\e089';
+}
+
+.fontawesome-font:before {
+	content: '\e08a';
+}
+
+.fontawesome-fonticons:before {
+	content: '\e08b';
+}
+
+.fontawesome-forumbee:before {
+	content: '\e08c';
+}
+
+.fontawesome-forward:before {
+	content: '\e08d';
+}
+
+.fontawesome-foursquare:before {
+	content: '\e08e';
+}
+
+.fontawesome-frown-o:before {
+	content: '\e08f';
+}
+
+.fontawesome-futbol-o:before {
+	content: '\e090';
+}
+
+.fontawesome-gamepad:before {
+	content: '\e091';
+}
+
+.fontawesome-gavel:before {
+	content: '\e092';
+}
+
+.fontawesome-gbp:before {
+	content: '\e093';
+}
+
+.fontawesome-genderless:before {
+	content: '\e094';
+}
+
+.fontawesome-get-pocket:before {
+	content: '\e095';
+}
+
+.fontawesome-gg:before {
+	content: '\e096';
+}
+
+.fontawesome-gg-circle:before {
+	content: '\e097';
+}
+
+.fontawesome-gift:before {
+	content: '\e098';
+}
+
+.fontawesome-git:before {
+	content: '\e099';
+}
+
+.fontawesome-git-square:before {
+	content: '\e09a';
+}
+
+.fontawesome-github:before {
+	content: '\e09b';
+}
+
+.fontawesome-github-alt:before {
+	content: '\e09c';
+}
+
+.fontawesome-github-square:before {
+	content: '\e09d';
+}
+
+.fontawesome-glass:before {
+	content: '\e09e';
+}
+
+.fontawesome-globe:before {
+	content: '\e09f';
+}
+
+.fontawesome-google:before {
+	content: '\e0a0';
+}
+
+.fontawesome-google-plus:before {
+	content: '\e0a1';
+}
+
+.fontawesome-google-plus-square:before {
+	content: '\e0a2';
+}
+
+.fontawesome-google-wallet:before {
+	content: '\e0a3';
+}
+
+.fontawesome-graduation-cap:before {
+	content: '\e0a4';
+}
+
+.fontawesome-gratipay:before {
+	content: '\e0a5';
+}
+
+.fontawesome-h-square:before {
+	content: '\e0a6';
+}
+
+.fontawesome-hacker-news:before {
+	content: '\e0a7';
+}
+
+.fontawesome-hand-lizard-o:before {
+	content: '\e0a8';
+}
+
+.fontawesome-hand-o-down:before {
+	content: '\e0a9';
+}
+
+.fontawesome-hand-o-left:before {
+	content: '\e0aa';
+}
+
+.fontawesome-hand-o-right:before {
+	content: '\e0ab';
+}
+
+.fontawesome-hand-o-up:before {
+	content: '\e0ac';
+}
+
+.fontawesome-hand-paper-o:before {
+	content: '\e0ad';
+}
+
+.fontawesome-hand-peace-o:before {
+	content: '\e0ae';
+}
+
+.fontawesome-hand-pointer-o:before {
+	content: '\e0af';
+}
+
+.fontawesome-hand-rock-o:before {
+	content: '\e0b0';
+}
+
+.fontawesome-hand-scissors-o:before {
+	content: '\e0b1';
+}
+
+.fontawesome-hand-spock-o:before {
+	content: '\e0b2';
+}
+
+.fontawesome-hdd-o:before {
+	content: '\e0b3';
+}
+
+.fontawesome-header:before {
+	content: '\e0b4';
+}
+
+.fontawesome-headphones:before {
+	content: '\e0b5';
+}
+
+.fontawesome-heart:before {
+	content: '\e0b6';
+}
+
+.fontawesome-heart-o:before {
+	content: '\e0b7';
+}
+
+.fontawesome-heartbeat:before {
+	content: '\e0b8';
+}
+
+.fontawesome-history:before {
+	content: '\e0b9';
+}
+
+.fontawesome-home:before {
+	content: '\e0ba';
+}
+
+.fontawesome-hospital-o:before {
+	content: '\e0bb';
+}
+
+.fontawesome-hourglass:before {
+	content: '\e0bc';
+}
+
+.fontawesome-hourglass-end:before {
+	content: '\e0bd';
+}
+
+.fontawesome-hourglass-half:before {
+	content: '\e0be';
+}
+
+.fontawesome-hourglass-o:before {
+	content: '\e0bf';
+}
+
+.fontawesome-hourglass-start:before {
+	content: '\e0c0';
+}
+
+.fontawesome-houzz:before {
+	content: '\e0c1';
+}
+
+.fontawesome-html5:before {
+	content: '\e0c2';
+}
+
+.fontawesome-i-cursor:before {
+	content: '\e0c3';
+}
+
+.fontawesome-ils:before {
+	content: '\e0c4';
+}
+
+.fontawesome-inbox:before {
+	content: '\e0c5';
+}
+
+.fontawesome-indent:before {
+	content: '\e0c6';
+}
+
+.fontawesome-industry:before {
+	content: '\e0c7';
+}
+
+.fontawesome-info:before {
+	content: '\e0c8';
+}
+
+.fontawesome-info-circle:before {
+	content: '\e0c9';
+}
+
+.fontawesome-inr:before {
+	content: '\e0ca';
+}
+
+.fontawesome-instagram:before {
+	content: '\e0cb';
+}
+
+.fontawesome-internet-explorer:before {
+	content: '\e0cc';
+}
+
+.fontawesome-ioxhost:before {
+	content: '\e0cd';
+}
+
+.fontawesome-italic:before {
+	content: '\e0ce';
+}
+
+.fontawesome-joomla:before {
+	content: '\e0cf';
+}
+
+.fontawesome-jpy:before {
+	content: '\e0d0';
+}
+
+.fontawesome-jsfiddle:before {
+	content: '\e0d1';
+}
+
+.fontawesome-key:before {
+	content: '\e0d2';
+}
+
+.fontawesome-keyboard-o:before {
+	content: '\e0d3';
+}
+
+.fontawesome-krw:before {
+	content: '\e0d4';
+}
+
+.fontawesome-language:before {
+	content: '\e0d5';
+}
+
+.fontawesome-laptop:before {
+	content: '\e0d6';
+}
+
+.fontawesome-lastfm:before {
+	content: '\e0d7';
+}
+
+.fontawesome-lastfm-square:before {
+	content: '\e0d8';
+}
+
+.fontawesome-leaf:before {
+	content: '\e0d9';
+}
+
+.fontawesome-leanpub:before {
+	content: '\e0da';
+}
+
+.fontawesome-lemon-o:before {
+	content: '\e0db';
+}
+
+.fontawesome-level-down:before {
+	content: '\e0dc';
+}
+
+.fontawesome-level-up:before {
+	content: '\e0dd';
+}
+
+.fontawesome-life-ring:before {
+	content: '\e0de';
+}
+
+.fontawesome-lightbulb-o:before {
+	content: '\e0df';
+}
+
+.fontawesome-line-chart:before {
+	content: '\e0e0';
+}
+
+.fontawesome-link:before {
+	content: '\e0e1';
+}
+
+.fontawesome-linkedin:before {
+	content: '\e0e2';
+}
+
+.fontawesome-linkedin-square:before {
+	content: '\e0e3';
+}
+
+.fontawesome-linux:before {
+	content: '\e0e4';
+}
+
+.fontawesome-list:before {
+	content: '\e0e5';
+}
+
+.fontawesome-list-alt:before {
+	content: '\e0e6';
+}
+
+.fontawesome-list-ol:before {
+	content: '\e0e7';
+}
+
+.fontawesome-list-ul:before {
+	content: '\e0e8';
+}
+
+.fontawesome-location-arrow:before {
+	content: '\e0e9';
+}
+
+.fontawesome-lock:before {
+	content: '\e0ea';
+}
+
+.fontawesome-long-arrow-down:before {
+	content: '\e0eb';
+}
+
+.fontawesome-long-arrow-left:before {
+	content: '\e0ec';
+}
+
+.fontawesome-long-arrow-right:before {
+	content: '\e0ed';
+}
+
+.fontawesome-long-arrow-up:before {
+	content: '\e0ee';
+}
+
+.fontawesome-magic:before {
+	content: '\e0ef';
+}
+
+.fontawesome-magnet:before {
+	content: '\e0f0';
+}
+
+.fontawesome-male:before {
+	content: '\e0f1';
+}
+
+.fontawesome-map:before {
+	content: '\e0f2';
+}
+
+.fontawesome-map-marker:before {
+	content: '\e0f3';
+}
+
+.fontawesome-map-o:before {
+	content: '\e0f4';
+}
+
+.fontawesome-map-pin:before {
+	content: '\e0f5';
+}
+
+.fontawesome-map-signs:before {
+	content: '\e0f6';
+}
+
+.fontawesome-mars:before {
+	content: '\e0f7';
+}
+
+.fontawesome-mars-double:before {
+	content: '\e0f8';
+}
+
+.fontawesome-mars-stroke:before {
+	content: '\e0f9';
+}
+
+.fontawesome-mars-stroke-h:before {
+	content: '\e0fa';
+}
+
+.fontawesome-mars-stroke-v:before {
+	content: '\e0fb';
+}
+
+.fontawesome-maxcdn:before {
+	content: '\e0fc';
+}
+
+.fontawesome-meanpath:before {
+	content: '\e0fd';
+}
+
+.fontawesome-medium:before {
+	content: '\e0fe';
+}
+
+.fontawesome-medkit:before {
+	content: '\e0ff';
+}
+
+.fontawesome-meh-o:before {
+	content: '\e100';
+}
+
+.fontawesome-mercury:before {
+	content: '\e101';
+}
+
+.fontawesome-microphone:before {
+	content: '\e102';
+}
+
+.fontawesome-microphone-slash:before {
+	content: '\e103';
+}
+
+.fontawesome-minus:before {
+	content: '\e104';
+}
+
+.fontawesome-minus-circle:before {
+	content: '\e105';
+}
+
+.fontawesome-minus-square:before {
+	content: '\e106';
+}
+
+.fontawesome-minus-square-o:before {
+	content: '\e107';
+}
+
+.fontawesome-mobile:before {
+	content: '\e108';
+}
+
+.fontawesome-money:before {
+	content: '\e109';
+}
+
+.fontawesome-moon-o:before {
+	content: '\e10a';
+}
+
+.fontawesome-motorcycle:before {
+	content: '\e10b';
+}
+
+.fontawesome-mouse-pointer:before {
+	content: '\e10c';
+}
+
+.fontawesome-music:before {
+	content: '\e10d';
+}
+
+.fontawesome-neuter:before {
+	content: '\e10e';
+}
+
+.fontawesome-newspaper-o:before {
+	content: '\e10f';
+}
+
+.fontawesome-object-group:before {
+	content: '\e110';
+}
+
+.fontawesome-object-ungroup:before {
+	content: '\e111';
+}
+
+.fontawesome-odnoklassniki:before {
+	content: '\e112';
+}
+
+.fontawesome-odnoklassniki-square:before {
+	content: '\e113';
+}
+
+.fontawesome-opencart:before {
+	content: '\e114';
+}
+
+.fontawesome-openid:before {
+	content: '\e115';
+}
+
+.fontawesome-opera:before {
+	content: '\e116';
+}
+
+.fontawesome-optin-monster:before {
+	content: '\e117';
+}
+
+.fontawesome-outdent:before {
+	content: '\e118';
+}
+
+.fontawesome-pagelines:before {
+	content: '\e119';
+}
+
+.fontawesome-paint-brush:before {
+	content: '\e11a';
+}
+
+.fontawesome-paper-plane:before {
+	content: '\e11b';
+}
+
+.fontawesome-paper-plane-o:before {
+	content: '\e11c';
+}
+
+.fontawesome-paperclip:before {
+	content: '\e11d';
+}
+
+.fontawesome-paragraph:before {
+	content: '\e11e';
+}
+
+.fontawesome-pause:before {
+	content: '\e11f';
+}
+
+.fontawesome-paw:before {
+	content: '\e120';
+}
+
+.fontawesome-paypal:before {
+	content: '\e121';
+}
+
+.fontawesome-pencil:before {
+	content: '\e122';
+}
+
+.fontawesome-pencil-square:before {
+	content: '\e123';
+}
+
+.fontawesome-pencil-square-o:before {
+	content: '\e124';
+}
+
+.fontawesome-phone:before {
+	content: '\e125';
+}
+
+.fontawesome-phone-square:before {
+	content: '\e126';
+}
+
+.fontawesome-picture-o:before {
+	content: '\e127';
+}
+
+.fontawesome-pie-chart:before {
+	content: '\e128';
+}
+
+.fontawesome-pied-piper:before {
+	content: '\e129';
+}
+
+.fontawesome-pied-piper-alt:before {
+	content: '\e12a';
+}
+
+.fontawesome-pinterest:before {
+	content: '\e12b';
+}
+
+.fontawesome-pinterest-p:before {
+	content: '\e12c';
+}
+
+.fontawesome-pinterest-square:before {
+	content: '\e12d';
+}
+
+.fontawesome-plane:before {
+	content: '\e12e';
+}
+
+.fontawesome-play:before {
+	content: '\e12f';
+}
+
+.fontawesome-play-circle:before {
+	content: '\e130';
+}
+
+.fontawesome-play-circle-o:before {
+	content: '\e131';
+}
+
+.fontawesome-plug:before {
+	content: '\e132';
+}
+
+.fontawesome-plus:before {
+	content: '\e133';
+}
+
+.fontawesome-plus-circle:before {
+	content: '\e134';
+}
+
+.fontawesome-plus-square:before {
+	content: '\e135';
+}
+
+.fontawesome-plus-square-o:before {
+	content: '\e136';
+}
+
+.fontawesome-power-off:before {
+	content: '\e137';
+}
+
+.fontawesome-print:before {
+	content: '\e138';
+}
+
+.fontawesome-puzzle-piece:before {
+	content: '\e139';
+}
+
+.fontawesome-qq:before {
+	content: '\e13a';
+}
+
+.fontawesome-qrcode:before {
+	content: '\e13b';
+}
+
+.fontawesome-question:before {
+	content: '\e13c';
+}
+
+.fontawesome-question-circle:before {
+	content: '\e13d';
+}
+
+.fontawesome-quote-left:before {
+	content: '\e13e';
+}
+
+.fontawesome-quote-right:before {
+	content: '\e13f';
+}
+
+.fontawesome-random:before {
+	content: '\e140';
+}
+
+.fontawesome-rebel:before {
+	content: '\e141';
+}
+
+.fontawesome-recycle:before {
+	content: '\e142';
+}
+
+.fontawesome-reddit:before {
+	content: '\e143';
+}
+
+.fontawesome-reddit-square:before {
+	content: '\e144';
+}
+
+.fontawesome-refresh:before {
+	content: '\e145';
+}
+
+.fontawesome-registered:before {
+	content: '\e146';
+}
+
+.fontawesome-renren:before {
+	content: '\e147';
+}
+
+.fontawesome-repeat:before {
+	content: '\e148';
+}
+
+.fontawesome-reply:before {
+	content: '\e149';
+}
+
+.fontawesome-reply-all:before {
+	content: '\e14a';
+}
+
+.fontawesome-retweet:before {
+	content: '\e14b';
+}
+
+.fontawesome-road:before {
+	content: '\e14c';
+}
+
+.fontawesome-rocket:before {
+	content: '\e14d';
+}
+
+.fontawesome-rss:before {
+	content: '\e14e';
+}
+
+.fontawesome-rss-square:before {
+	content: '\e14f';
+}
+
+.fontawesome-rub:before {
+	content: '\e150';
+}
+
+.fontawesome-safari:before {
+	content: '\e151';
+}
+
+.fontawesome-scissors:before {
+	content: '\e152';
+}
+
+.fontawesome-search:before {
+	content: '\e153';
+}
+
+.fontawesome-search-minus:before {
+	content: '\e154';
+}
+
+.fontawesome-search-plus:before {
+	content: '\e155';
+}
+
+.fontawesome-sellsy:before {
+	content: '\e156';
+}
+
+.fontawesome-server:before {
+	content: '\e157';
+}
+
+.fontawesome-share:before {
+	content: '\e158';
+}
+
+.fontawesome-share-alt:before {
+	content: '\e159';
+}
+
+.fontawesome-share-alt-square:before {
+	content: '\e15a';
+}
+
+.fontawesome-share-square:before {
+	content: '\e15b';
+}
+
+.fontawesome-share-square-o:before {
+	content: '\e15c';
+}
+
+.fontawesome-shield:before {
+	content: '\e15d';
+}
+
+.fontawesome-ship:before {
+	content: '\e15e';
+}
+
+.fontawesome-shirtsinbulk:before {
+	content: '\e15f';
+}
+
+.fontawesome-shopping-cart:before {
+	content: '\e160';
+}
+
+.fontawesome-sign-in:before {
+	content: '\e161';
+}
+
+.fontawesome-sign-out:before {
+	content: '\e162';
+}
+
+.fontawesome-signal:before {
+	content: '\e163';
+}
+
+.fontawesome-simplybuilt:before {
+	content: '\e164';
+}
+
+.fontawesome-sitemap:before {
+	content: '\e165';
+}
+
+.fontawesome-skyatlas:before {
+	content: '\e166';
+}
+
+.fontawesome-skype:before {
+	content: '\e167';
+}
+
+.fontawesome-slack:before {
+	content: '\e168';
+}
+
+.fontawesome-sliders:before {
+	content: '\e169';
+}
+
+.fontawesome-slideshare:before {
+	content: '\e16a';
+}
+
+.fontawesome-smile-o:before {
+	content: '\e16b';
+}
+
+.fontawesome-sort:before {
+	content: '\e16c';
+}
+
+.fontawesome-sort-alpha-asc:before {
+	content: '\e16d';
+}
+
+.fontawesome-sort-alpha-desc:before {
+	content: '\e16e';
+}
+
+.fontawesome-sort-amount-asc:before {
+	content: '\e16f';
+}
+
+.fontawesome-sort-amount-desc:before {
+	content: '\e170';
+}
+
+.fontawesome-sort-asc:before {
+	content: '\e171';
+}
+
+.fontawesome-sort-desc:before {
+	content: '\e172';
+}
+
+.fontawesome-sort-numeric-asc:before {
+	content: '\e173';
+}
+
+.fontawesome-sort-numeric-desc:before {
+	content: '\e174';
+}
+
+.fontawesome-soundcloud:before {
+	content: '\e175';
+}
+
+.fontawesome-space-shuttle:before {
+	content: '\e176';
+}
+
+.fontawesome-spinner:before {
+	content: '\e177';
+}
+
+.fontawesome-spoon:before {
+	content: '\e178';
+}
+
+.fontawesome-spotify:before {
+	content: '\e179';
+}
+
+.fontawesome-square:before {
+	content: '\e17a';
+}
+
+.fontawesome-square-o:before {
+	content: '\e17b';
+}
+
+.fontawesome-stack-exchange:before {
+	content: '\e17c';
+}
+
+.fontawesome-stack-overflow:before {
+	content: '\e17d';
+}
+
+.fontawesome-star:before {
+	content: '\e17e';
+}
+
+.fontawesome-star-half:before {
+	content: '\e17f';
+}
+
+.fontawesome-star-half-o:before {
+	content: '\e180';
+}
+
+.fontawesome-star-o:before {
+	content: '\e181';
+}
+
+.fontawesome-steam:before {
+	content: '\e182';
+}
+
+.fontawesome-steam-square:before {
+	content: '\e183';
+}
+
+.fontawesome-step-backward:before {
+	content: '\e184';
+}
+
+.fontawesome-step-forward:before {
+	content: '\e185';
+}
+
+.fontawesome-stethoscope:before {
+	content: '\e186';
+}
+
+.fontawesome-sticky-note:before {
+	content: '\e187';
+}
+
+.fontawesome-sticky-note-o:before {
+	content: '\e188';
+}
+
+.fontawesome-stop:before {
+	content: '\e189';
+}
+
+.fontawesome-street-view:before {
+	content: '\e18a';
+}
+
+.fontawesome-strikethrough:before {
+	content: '\e18b';
+}
+
+.fontawesome-stumbleupon:before {
+	content: '\e18c';
+}
+
+.fontawesome-stumbleupon-circle:before {
+	content: '\e18d';
+}
+
+.fontawesome-subscript:before {
+	content: '\e18e';
+}
+
+.fontawesome-subway:before {
+	content: '\e18f';
+}
+
+.fontawesome-suitcase:before {
+	content: '\e190';
+}
+
+.fontawesome-sun-o:before {
+	content: '\e191';
+}
+
+.fontawesome-superscript:before {
+	content: '\e192';
+}
+
+.fontawesome-table:before {
+	content: '\e193';
+}
+
+.fontawesome-tablet:before {
+	content: '\e194';
+}
+
+.fontawesome-tachometer:before {
+	content: '\e195';
+}
+
+.fontawesome-tag:before {
+	content: '\e196';
+}
+
+.fontawesome-tags:before {
+	content: '\e197';
+}
+
+.fontawesome-tasks:before {
+	content: '\e198';
+}
+
+.fontawesome-taxi:before {
+	content: '\e199';
+}
+
+.fontawesome-television:before {
+	content: '\e19a';
+}
+
+.fontawesome-tencent-weibo:before {
+	content: '\e19b';
+}
+
+.fontawesome-terminal:before {
+	content: '\e19c';
+}
+
+.fontawesome-text-height:before {
+	content: '\e19d';
+}
+
+.fontawesome-text-width:before {
+	content: '\e19e';
+}
+
+.fontawesome-th:before {
+	content: '\e19f';
+}
+
+.fontawesome-th-large:before {
+	content: '\e1a0';
+}
+
+.fontawesome-th-list:before {
+	content: '\e1a1';
+}
+
+.fontawesome-thumb-tack:before {
+	content: '\e1a2';
+}
+
+.fontawesome-thumbs-down:before {
+	content: '\e1a3';
+}
+
+.fontawesome-thumbs-o-down:before {
+	content: '\e1a4';
+}
+
+.fontawesome-thumbs-o-up:before {
+	content: '\e1a5';
+}
+
+.fontawesome-thumbs-up:before {
+	content: '\e1a6';
+}
+
+.fontawesome-ticket:before {
+	content: '\e1a7';
+}
+
+.fontawesome-times:before {
+	content: '\e1a8';
+}
+
+.fontawesome-times-circle:before {
+	content: '\e1a9';
+}
+
+.fontawesome-times-circle-o:before {
+	content: '\e1aa';
+}
+
+.fontawesome-tint:before {
+	content: '\e1ab';
+}
+
+.fontawesome-toggle-off:before {
+	content: '\e1ac';
+}
+
+.fontawesome-toggle-on:before {
+	content: '\e1ad';
+}
+
+.fontawesome-trademark:before {
+	content: '\e1ae';
+}
+
+.fontawesome-train:before {
+	content: '\e1af';
+}
+
+.fontawesome-transgender:before {
+	content: '\e1b0';
+}
+
+.fontawesome-transgender-alt:before {
+	content: '\e1b1';
+}
+
+.fontawesome-trash:before {
+	content: '\e1b2';
+}
+
+.fontawesome-trash-o:before {
+	content: '\e1b3';
+}
+
+.fontawesome-tree:before {
+	content: '\e1b4';
+}
+
+.fontawesome-trello:before {
+	content: '\e1b5';
+}
+
+.fontawesome-tripadvisor:before {
+	content: '\e1b6';
+}
+
+.fontawesome-trophy:before {
+	content: '\e1b7';
+}
+
+.fontawesome-truck:before {
+	content: '\e1b8';
+}
+
+.fontawesome-try:before {
+	content: '\e1b9';
+}
+
+.fontawesome-tty:before {
+	content: '\e1ba';
+}
+
+.fontawesome-tumblr:before {
+	content: '\e1bb';
+}
+
+.fontawesome-tumblr-square:before {
+	content: '\e1bc';
+}
+
+.fontawesome-twitch:before {
+	content: '\e1bd';
+}
+
+.fontawesome-twitter:before {
+	content: '\e1be';
+}
+
+.fontawesome-twitter-square:before {
+	content: '\e1bf';
+}
+
+.fontawesome-umbrella:before {
+	content: '\e1c0';
+}
+
+.fontawesome-underline:before {
+	content: '\e1c1';
+}
+
+.fontawesome-undo:before {
+	content: '\e1c2';
+}
+
+.fontawesome-university:before {
+	content: '\e1c3';
+}
+
+.fontawesome-unlock:before {
+	content: '\e1c4';
+}
+
+.fontawesome-unlock-alt:before {
+	content: '\e1c5';
+}
+
+.fontawesome-upload:before {
+	content: '\e1c6';
+}
+
+.fontawesome-usd:before {
+	content: '\e1c7';
+}
+
+.fontawesome-user:before {
+	content: '\e1c8';
+}
+
+.fontawesome-user-md:before {
+	content: '\e1c9';
+}
+
+.fontawesome-user-plus:before {
+	content: '\e1ca';
+}
+
+.fontawesome-user-secret:before {
+	content: '\e1cb';
+}
+
+.fontawesome-user-times:before {
+	content: '\e1cc';
+}
+
+.fontawesome-users:before {
+	content: '\e1cd';
+}
+
+.fontawesome-venus:before {
+	content: '\e1ce';
+}
+
+.fontawesome-venus-double:before {
+	content: '\e1cf';
+}
+
+.fontawesome-venus-mars:before {
+	content: '\e1d0';
+}
+
+.fontawesome-viacoin:before {
+	content: '\e1d1';
+}
+
+.fontawesome-video-camera:before {
+	content: '\e1d2';
+}
+
+.fontawesome-vimeo:before {
+	content: '\e1d3';
+}
+
+.fontawesome-vimeo-square:before {
+	content: '\e1d4';
+}
+
+.fontawesome-vine:before {
+	content: '\e1d5';
+}
+
+.fontawesome-vk:before {
+	content: '\e1d6';
+}
+
+.fontawesome-volume-down:before {
+	content: '\e1d7';
+}
+
+.fontawesome-volume-off:before {
+	content: '\e1d8';
+}
+
+.fontawesome-volume-up:before {
+	content: '\e1d9';
+}
+
+.fontawesome-weibo:before {
+	content: '\e1da';
+}
+
+.fontawesome-weixin:before {
+	content: '\e1db';
+}
+
+.fontawesome-whatsapp:before {
+	content: '\e1dc';
+}
+
+.fontawesome-wheelchair:before {
+	content: '\e1dd';
+}
+
+.fontawesome-wifi:before {
+	content: '\e1de';
+}
+
+.fontawesome-wikipedia-w:before {
+	content: '\e1df';
+}
+
+.fontawesome-windows:before {
+	content: '\e1e0';
+}
+
+.fontawesome-wordpress:before {
+	content: '\e1e1';
+}
+
+.fontawesome-wrench:before {
+	content: '\e1e2';
+}
+
+.fontawesome-xing:before {
+	content: '\e1e3';
+}
+
+.fontawesome-xing-square:before {
+	content: '\e1e4';
+}
+
+.fontawesome-y-combinator:before {
+	content: '\e1e5';
+}
+
+.fontawesome-yahoo:before {
+	content: '\e1e6';
+}
+
+.fontawesome-yelp:before {
+	content: '\e1e7';
+}
+
+.fontawesome-youtube:before {
+	content: '\e1e8';
+}
+
+.fontawesome-youtube-play:before {
+	content: '\e1e9';
+}
+
+.fontawesome-youtube-square:before {
+	content: '\e1ea';
+}

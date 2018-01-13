@@ -1,0 +1,149 @@
+@import './default.tablet.css';
+@import './default.mobile.css';
+/* IMPORTANT - YOU HAVE TO SAVE THE COMPONENT, CONTAINER OR VIEW CSS FILE */
+/* IN ORDER TO THE PRE-COMPILLER MERGE THE THEME STYLING */
+
+/* Variables goes inside root, classes definition inside .default */
+:root {
+	--computer-default-font-family: RobotoLight;
+	--computer-default-font-size-xs-1: 20px;
+	--computer-default-font-size-xs-2: 16px;
+	--computer-default-font-size-xs-3: 12px;
+
+	--computer-default-font-size-sm-1: 35px;
+	--computer-default-font-size-sm-2: 20px;
+	--computer-default-font-size-sm-3: 15px;
+
+	--computer-default-font-size-md-1: 50px;
+	--computer-default-font-size-md-2: 24px;
+	--computer-default-font-size-md-3: 17px;
+
+	--computer-default-font-size-lg-1: 65px;
+	--computer-default-font-size-lg-2: 30px;
+	--computer-default-font-size-lg-3: 19px;
+
+	--computer-default-font-size-xl-1: 80px;
+	--computer-default-font-size-xl-2: 34px;
+	--computer-default-font-size-xl-3: 21px;
+
+	--computer-default-text-color-1: #333;
+	--computer-default-text-color-2: #777;
+	--computer-default-text-color-3: #CCC;
+
+	/* UIKIT VARIABLES */
+	--computer-default-title-color: var(--computer-default-text-color-1);
+	--computer-default-subtitle-color: var(--computer-default-text-color-2);
+	--computer-default-text-color-disabled: var(--computer-default-text-color-3);
+}
+
+/* DEVICE: COMPUTER */
+/* UIKIT VIEW */
+.default.computer {
+	&.homepage {
+		background-color: #EEE;
+
+		& .stage {
+			background-color: white;
+		}
+	}
+}
+
+/* UIKIT COMPONENTS */
+/* ATOMS */
+/* ATOM: TITLE */
+.default.title {
+	&.computer {
+		color: var(--computer-default-title-color);
+
+		& .disabled {
+			color: var(--computer-default-text-color-disabled);
+		}
+
+		& .xs {
+			font-size: var(--computer-default-font-size-xs-2);
+			font-weight: 700;
+		}
+
+		& .sm {
+			font-size: var(--computer-default-font-size-sm-2);
+			font-weight: 700;
+		}
+
+		& .md {
+			font-size: var(--computer-default-font-size-md-2);
+			font-weight: 700;
+		}
+
+		& .lg {
+			font-size: var(--computer-default-font-size-lg-2);
+			font-weight: 700;
+		}
+
+		& .xl {
+			font-size: var(--computer-default-font-size-xl-2);
+			font-weight: 700;
+		}
+	}
+}
+
+/* ATOM: SUBTITLE */
+.default.subtitle {
+	&.computer {
+		color: var(--computer-default-subtitle-color);
+
+		& .disabled {
+			color: var(--computer-default-text-color-disabled);
+		}
+
+		& .xs {
+			font-size: var(--computer-default-font-size-xs-3);
+		}
+
+		& .sm {
+			font-size: var(--computer-default-font-size-sm-3);
+		}
+
+		& .md {
+			font-size: var(--computer-default-font-size-md-3);
+		}
+
+		& .lg {
+			font-size: var(--computer-default-font-size-lg-3);
+		}
+
+		& .xl {
+			font-size: var(--computer-default-font-size-xl-3);
+		}
+	}
+}
+
+/* ATOM: GLYPH */
+.default.glyph {
+	&.computer {
+		color: var(--computer-default-title-color);
+
+		& .disabled {
+			color: var(--computer-default-text-color-disabled);
+		}
+
+		& .xs {
+			font-size: var(--computer-default-font-size-xs-1);
+		}
+
+		& .sm {
+			font-size: var(--computer-default-font-size-sm-1);
+		}
+
+		& .md {
+			font-size: var(--computer-default-font-size-md-1);
+		}
+
+		& .lg {
+			font-size: var(--computer-default-font-size-lg-1);
+		}
+
+		& .xl {
+			font-size: var(--computer-default-font-size-xl-1);
+		}
+	}
+}

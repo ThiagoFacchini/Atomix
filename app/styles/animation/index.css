@@ -1,0 +1,24 @@
+@import './attention_seekers/index.css';
+@import './bouncing_entrances/index.css';
+@import './bouncing_exits/index.css';
+@import './fading_entrances/index.css';
+@import './fading_exits/index.css';
+@import './flippers/index.css';
+@import './lightspeed/index.css';
+@import './rotating_entrances/index.css';
+@import './rotating_exits/index.css';
+@import './sliding_entrances/index.css';
+@import './sliding_exits/index.css';
+@import './specials/index.css';
+@import './zooming_entrances/index.css';
+@import './zooming_exits/index.css';
+
+
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.animated.infinite {
+	animation-iteration-count: infinite;
+}

@@ -1,0 +1,17 @@
+@import '../../styles/themesManager.css';
+
+.homepage {
+	position: relative;
+	display: flex;
+	height: 100%;
+	width: 100%;
+
+	& .stage {
+		flex: 1;
+		flex-grow: 1;
+		flex-direction: column;
+		margin: 20px;
+		padding: 20px;
+		background-color: #FFF;
+	}
+}

@@ -1,0 +1,15 @@
+/* IMPORTANT - YOU HAVE TO SAVE THE COMPONENT, CONTAINER OR VIEW CSS FILE */
+/* IN ORDER TO THE PRE-COMPILLER MERGE THE THEME STYLING */
+
+/* Variables goes inside root, classes definition inside .default */
+:root {
+	--tablet-default-text-color: #FFF;
+}
+
+
+/* DEVICE: TABLET */
+.default.tablet {
+	&.homepage {
+		background-color: #EEE;
+	}
+}
