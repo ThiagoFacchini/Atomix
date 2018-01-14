@@ -34,18 +34,25 @@ export type AnimationType = 'attention_seekers' | 'bouncing_entrances' | 'bounci
 
 export type AnimationBehaviour = 'animateOnce' | 'animateLoop'
 
+export type AnimationDuration = 'veryshort' | 'short' | 'medium' | 'long' | 'verylong'
+
 type PropTypes = {
 	children: any,
 	type: AnimationType,
 	name: string,
-	behaviour: AnimationBehaviour
+	behaviour?: AnimationBehaviour,
+	duration?: AnimationDuration,
 }
 // --------------------------------------------------------
 
 // --------------------------------------------------------
 // DEFINES ATOM DEFAULT PROPERTIES
 // --------------------------------------------------------
-const _defaultProps = {}
+// NB: No default constants should be used here, as Proton type components cannot have dependencies.
+const _defaultProps = {
+	behaviour: 'animateOnce',
+	duration: 'short'
+}
 // --------------------------------------------------------
 
 function Animator (props: PropTypes) {
@@ -63,7 +70,8 @@ function Animator (props: PropTypes) {
 				styles[props.type],
 				styles[props.name],
 				styles['animated'],
-				styles[_getAnimationBehaviour(props.behaviour)]
+				styles[_getAnimationBehaviour(props.behaviour)],
+				styles[props.duration]
 			)}>
 				{ props.children }
 			</div>

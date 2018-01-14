@@ -168,6 +168,7 @@ export class HomePage extends React.Component<PropTypes> {
 								animationType="sliding_entrances"
 								animationName="slideInLeft"
 								animationBehaviour="animateOnce"
+								animationDuration="verylong"
 								isEnabled={false}
 							/>
 						</div>

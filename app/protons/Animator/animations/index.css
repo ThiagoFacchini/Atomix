@@ -15,10 +15,29 @@
 
 
 .animated {
-	animation-duration: 1s;
 	animation-fill-mode: both;
 
-	& .infinite {
+	&.infinite {
 		animation-iteration-count: infinite;
+	}
+
+	&.veryshort {
+		animation-duration: 0.5s;
+	}
+
+	&.short {
+		animation-duration: 1s;
+	}
+
+	&.medium {
+		animation-duration: 1.5s;
+	}
+
+	&.long {
+		animation-duration: 2s;
+	}
+
+	&.verylong {
+		animation-duration: 2.5s;
 	}
 }

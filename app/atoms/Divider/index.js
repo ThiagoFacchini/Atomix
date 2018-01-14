@@ -19,7 +19,8 @@ import React from 'react'
 import Animator from '../../protons/Animator'
 import type {
 	AnimationType,
-	AnimationBehaviour
+	AnimationBehaviour,
+	AnimationDuration
 } from '../../protons/Animator'
 
 import type {
@@ -32,6 +33,8 @@ import {
 	DEFAULT_SIZE,
 	DEFAULT_IS_COMPONENT_ENABLE,
 	DEFAULT_IS_DISABLED_CLASS,
+	DEFAULT_ANIMATION_BEHAVIOUR,
+	DEFAULT_ANIMATION_DURATION
 } from '../../neutrons/Defaults'
 // --------------------------------------------------------
 
@@ -59,6 +62,7 @@ type PropTypes = {
 	animationType?: AnimationType,
 	animationName?: string,
 	animationBehaviour?: AnimationBehaviour,
+	animationDuration?: AnimationDuration,
 	isEnabled?: boolean
 }
 // --------------------------------------------------------
@@ -95,13 +99,40 @@ function Divider (props: PropTypes) {
 				<Animator
 					type={props.animationType}
 					name={props.animationName}
-					behaviour={props.animationBehaviour}
+					behaviour={_getAnimationBehaviour(props.animationBehaviour)}
+					duration={_getAnimationDuration(props.animationDuration)}
 				>
 					{ _getDividerComponent(props) }
 				</Animator>
 			)
 		} else {
 			return _getDividerComponent(props)
+		}
+	}
+
+	/**
+	 * Define what the animation behaviour will be
+	 * @param       {AnimationBehaviour} behaviour Behaviour from component properties or null
+	 * @return      {AnimationBehaviour} Behaviour passed in the component properties or the default
+	 */
+	function _getAnimationBehaviour (behaviour: AnimationBehaviour | null): AnimationBehaviour {
+		if (behaviour) {
+			return behaviour
+		} else {
+			return DEFAULT_ANIMATION_BEHAVIOUR
+		}
+	}
+
+	/**
+	 * Define what the animation duration will be
+	 * @param       {AnimationDuration} duration Duration from component properties or null
+	 * @return      {AnimationDuration} Duration passed in the component properties or the default
+	 */
+	function _getAnimationDuration (duration: AnimationDuration | null): AnimationDuration {
+		if (duration) {
+			return duration
+		} else {
+			return DEFAULT_ANIMATION_DURATION
 		}
 	}
 

@@ -20,7 +20,8 @@ import _ from 'lodash'
 import Animator from '../../protons/Animator'
 import type {
 	AnimationType,
-	AnimationBehaviour
+	AnimationBehaviour,
+	AnimationDuration
 } from '../../protons/Animator'
 
 import type {
@@ -37,6 +38,8 @@ import {
 	DEFAULT_NOT_USER_SELECTABLE_CLASS,
 	DEFAULT_IS_COMPONENT_ENABLE,
 	DEFAULT_IS_DISABLED_CLASS,
+	DEFAULT_ANIMATION_BEHAVIOUR,
+	DEFAULT_ANIMATION_DURATION
 } from '../../neutrons/Defaults'
 // --------------------------------------------------------
 
@@ -60,7 +63,8 @@ type PropTypes = {
 	alignment?: ComponentAlignment,
 	animationType?: AnimationType,
 	animationName?: string,
-	animationBehaviour?: AnimationBehaviour
+	animationBehaviour?: AnimationBehaviour,
+	animationDuration?: AnimationDuration
 }
 // --------------------------------------------------------
 
@@ -90,12 +94,13 @@ function Title (props: PropTypes) {
 	 */
 	function _getRenderElement (props: Object): Object | null {
 		if (_.isString(props.children)) {
-			if (props.animationType && props.animationName && props.animationBehaviour) {
+			if (props.animationType && props.animationName) {
 				return (
 					<Animator
 						type={props.animationType}
 						name={props.animationName}
-						behaviour={props.animationBehaviour}
+						behaviour={_getAnimationBehaviour(props.animationBehaviour)}
+						duration={_getAnimationDuration(props.animationDuration)}
 					>
 						{ _getTitleComponent(props.children) }
 					</Animator>
@@ -106,6 +111,32 @@ function Title (props: PropTypes) {
 		} else {
 			// @TODO Hook into a log system
 			return null
+		}
+	}
+
+	/**
+	 * Define what the animation behaviour will be
+	 * @param       {AnimationBehaviour} behaviour Behaviour from component properties or null
+	 * @return      {AnimationBehaviour} Behaviour passed in the component properties or the default
+	 */
+	function _getAnimationBehaviour (behaviour: AnimationBehaviour | null): AnimationBehaviour {
+		if (behaviour) {
+			return behaviour
+		} else {
+			return DEFAULT_ANIMATION_BEHAVIOUR
+		}
+	}
+
+	/**
+	 * Define what the animation duration will be
+	 * @param       {AnimationDuration} duration Duration from component properties or null
+	 * @return      {AnimationDuration} Duration passed in the component properties or the default
+	 */
+	function _getAnimationDuration (duration: AnimationDuration | null): AnimationDuration {
+		if (duration) {
+			return duration
+		} else {
+			return DEFAULT_ANIMATION_DURATION
 		}
 	}
 
