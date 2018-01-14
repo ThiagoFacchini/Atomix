@@ -12,7 +12,24 @@
 import React from 'react'
 
 import Animator from '../../protons/Animator'
-import type { AnimationType, AnimationBehaviour } from '../../protons/Animator'
+import type {
+	AnimationType,
+	AnimationBehaviour
+} from '../../protons/Animator'
+
+import type {
+	ComponentSize,
+	ComponentAlignment
+} from '../../neutrons/Types'
+
+import {
+	DEFAULT_THEME,
+	DEFAULT_DEVICE,
+	DEFAULT_SIZE,
+	DEFAULT_ALIGNMENT,
+	DEFAULT_IS_COMPONENT_ENABLE,
+	DEFAULT_IS_DISABLED_CLASS,
+} from '../../neutrons/Defaults'
 // --------------------------------------------------------
 
 // --------------------------------------------------------
@@ -30,9 +47,6 @@ import justvectorsocial from './libs/justVectorSocial/just-vector-social.css'
 // --------------------------------------------------------
 // ATOM PROPERTIES DEFINITION
 // --------------------------------------------------------
-export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-export type Alignment = 'left' | 'center' | 'right' | 'justify'
-export type Animation = 'none' | 'fadeIn' | 'fadeOut' | 'slideIn' | 'slideOut' | 'dropIn' | 'dropOut' | 'elasticSlideIn' | 'elasticSlideOut' | 'shake'
 export type IconFamily = 'fontawesome' | 'ionicons' | 'justvectorsocial'
 
 type PropTypes = {
@@ -42,7 +56,7 @@ type PropTypes = {
 	family?: IconFamily,
 	name: string,
 	isEnabled?: boolean,
-	alignment?: Alignment,
+	alignment?: ComponentAlignment,
 	animationType?: AnimationType,
 	animationName?: string,
 	animationBehaviour?: AnimationBehaviour
@@ -53,12 +67,12 @@ type PropTypes = {
 // DEFINES ATOM DEFAULT PROPERTIES
 // --------------------------------------------------------
 const _defaultProps = {
-	theme: 'default',
-	device: 'computer',
-	size: 'md',
+	theme: DEFAULT_THEME,
+	device: DEFAULT_DEVICE,
+	size: DEFAULT_SIZE,
 	family: 'fontawesome',
-	isEnabled: true,
-	alignment: 'left',
+	isEnabled: DEFAULT_IS_COMPONENT_ENABLE,
+	alignment: DEFAULT_ALIGNMENT,
 	animationType: null,
 	animationName: null,
 	animationBehaviour: null,
@@ -69,7 +83,6 @@ function Glyph (props: PropTypes) {
 	// --------------------------------------------------------
 	// ATOM PRIVATE FUNCTION & VARIABLE DECLARATIONS
 	// --------------------------------------------------------
-	const IS_DISABLED_CLASS = 'disabled'
 
 	/**
 	 * Build the component that is going to be rendered
@@ -139,7 +152,7 @@ function Glyph (props: PropTypes) {
 		if (isEnabled) {
 			return null
 		} else {
-			return IS_DISABLED_CLASS
+			return DEFAULT_IS_DISABLED_CLASS
 		}
 	}
 

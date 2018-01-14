@@ -18,7 +18,27 @@ import React from 'react'
 import _ from 'lodash'
 
 import Animator from '../../protons/Animator'
-import type { AnimationType, AnimationBehaviour } from '../../protons/Animator'
+
+import type {
+	AnimationType,
+	AnimationBehaviour
+} from '../../protons/Animator'
+
+import type {
+	ComponentSize,
+	ComponentAlignment
+} from '../../neutrons/Types'
+
+import {
+	DEFAULT_THEME,
+	DEFAULT_DEVICE,
+	DEFAULT_SIZE,
+	DEFAULT_ALIGNMENT,
+	DEFAULT_IS_USER_SELECTABLE,
+	DEFAULT_NOT_USER_SELECTABLE_CLASS,
+	DEFAULT_IS_COMPONENT_ENABLE,
+	DEFAULT_IS_DISABLED_CLASS,
+} from '../../neutrons/Defaults'
 // --------------------------------------------------------
 
 // --------------------------------------------------------
@@ -31,10 +51,6 @@ import styles from './styles.css'
 // --------------------------------------------------------
 // ATOM PROPERTIES DEFINITION
 // --------------------------------------------------------
-export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-export type Alignment = 'left' | 'center' | 'right' | 'justify'
-export type Animation = 'none' | 'fadeIn' | 'fadeOut' | 'slideIn' | 'slideOut' | 'dropIn' | 'dropOut' | 'elasticSlideIn' | 'elasticSlideOut' | 'shake'
-
 type PropTypes = {
 	children: ?any,
 	theme: ?string,
@@ -42,7 +58,7 @@ type PropTypes = {
 	size?: ComponentSize,
 	isUserSelectable?: boolean,
 	isEnabled?: boolean,
-	alignment?: Alignment,
+	alignment?: ComponentAlignment,
 	animationType?: AnimationType,
 	animationName?: string,
 	animationBehaviour?: AnimationBehaviour
@@ -54,12 +70,12 @@ type PropTypes = {
 // --------------------------------------------------------
 const _defaultProps = {
 	children: null,
-	theme: 'default',
-	device: 'computer',
-	size: 'md',
-	isUserSelectable: true,
-	isEnabled: true,
-	alignment: 'left',
+	theme: DEFAULT_THEME,
+	device: DEFAULT_DEVICE,
+	size: DEFAULT_SIZE,
+	isUserSelectable: DEFAULT_IS_USER_SELECTABLE,
+	isEnabled: DEFAULT_IS_COMPONENT_ENABLE,
+	alignment: DEFAULT_ALIGNMENT,
 	animation: 'none'
 }
 // --------------------------------------------------------
@@ -69,8 +85,6 @@ function Subtitle (props: PropTypes) {
 	// --------------------------------------------------------
 	// ATOM PRIVATE FUNCTION & VARIABLE DECLARATIONS
 	// --------------------------------------------------------
-	const NOT_USER_SELECTABLE_CLASS = 'notUserSelectable'
-	const IS_DISABLED_CLASS = 'disabled'
 
 	/**
 	 * Build the component that is going to be rendered
@@ -126,7 +140,7 @@ function Subtitle (props: PropTypes) {
 		if (isUserSelectable) {
 			return null
 		} else {
-			return NOT_USER_SELECTABLE_CLASS
+			return DEFAULT_NOT_USER_SELECTABLE_CLASS
 		}
 	}
 
@@ -139,7 +153,7 @@ function Subtitle (props: PropTypes) {
 		if (isEnabled) {
 			return null
 		} else {
-			return IS_DISABLED_CLASS
+			return DEFAULT_IS_DISABLED_CLASS
 		}
 	}
 

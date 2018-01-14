@@ -22,12 +22,13 @@ import {
 
 import themeManager from './../../structural/ThemeManager'
 
-import FlexRow from './../../atoms/FlexRow'
-import FlexCol from './../../atoms/FlexCol'
+import FlexRow from './../../protons/FlexRow'
+import FlexCol from './../../protons/FlexCol'
+import Animator from './../../protons/Animator'
 import Glyph from './../../atoms/Glyph'
 import Title from './../../atoms/Title'
 import Subtitle from './../../atoms/Subtitle'
-import Animator from './../../protons/Animator'
+import Divider from './../../atoms/Divider'
 import Header from './../../molecules/Header'
 
 
@@ -136,7 +137,7 @@ export class HomePage extends React.Component<PropTypes> {
 
 				<FlexRow class={classNames(styles.stage)}>
 					<FlexCol>
-						<div>
+						<div style={{width: '100%'}}>
 							<Title
 								theme={this.props.themeManager.theme.get()}
 								device={this.props.themeManager.device.get()}
@@ -157,6 +158,18 @@ export class HomePage extends React.Component<PropTypes> {
 							>
 								Buttons should be used
 							</Subtitle>
+							<Divider
+								theme={this.props.themeManager.theme.get()}
+								device={this.props.themeManager.device.get()}
+								size='xs'
+								paddingLeft={0}
+								paddingRight={0}
+								paddingBottom={10}
+								animationType="sliding_entrances"
+								animationName="slideInLeft"
+								animationBehaviour="animateOnce"
+								isEnabled={false}
+							/>
 						</div>
 					</FlexCol>
 

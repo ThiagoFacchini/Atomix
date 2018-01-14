@@ -29,11 +29,14 @@
 	--computer-default-text-color-1: #333;
 	--computer-default-text-color-2: #777;
 	--computer-default-text-color-3: #CCC;
+	--computer-default-text-color-4: #E3E3E3;
 
 	/* UIKIT VARIABLES */
 	--computer-default-title-color: var(--computer-default-text-color-1);
 	--computer-default-subtitle-color: var(--computer-default-text-color-2);
 	--computer-default-text-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-border-color-divider: var(--computer-default-text-color-3);
+	--computer-default-border-color-divider-disabled: var(--computer-default-text-color-4);
 }
 
 /* DEVICE: COMPUTER */
@@ -144,6 +147,44 @@
 
 		& .xl {
 			font-size: var(--computer-default-font-size-xl-1);
+		}
+	}
+}
+
+/* ATOM: DIVIDER */
+.default.divider {
+	&.computer {
+		& .content {
+			border-color: var(--computer-default-border-color-divider);
+
+			&.disabled {
+				border-color: var(--computer-default-border-color-divider-disabled);
+			}
+		}
+
+		& .xs {
+			border-width: 0;
+			border-top-width: 1px;
+		}
+
+		& .sm {
+			border-width: 0;
+			border-top-width: 2px;
+		}
+
+		& .md {
+			border-width: 0;
+			border-top-width: 3px;
+		}
+
+		& .lg {
+			border-width: 0;
+			border-top-width: 4px;
+		}
+
+		& .xl {
+			border-width: 0;
+			border-top-width: 5px;
 		}
 	}
 }

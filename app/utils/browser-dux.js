@@ -2,7 +2,13 @@
 
 const browser = require('bowser')
 
-let RE, OS, CG, DE
+export type DeviceType = 'computer' | 'tablet' | 'mobile'
+export type OSType = 'mac' | 'windows' | 'windowsphone' | 'linux' | 'android' | 'ios' | 'blackberry' |
+	'firefoxos' | 'webos' | 'bada' | 'tizen' | 'sailfish' | 'unknown'
+export type CompatibilityGradeType = 'a' | 'b' | 'c' | 'unknown'
+export type RenderEngineType = 'blink' | 'webkit' | 'gecko' | 'msie' | 'msedge' | 'unknown'
+
+let RE: RenderEngineType, OS: OSType, CG: CompatibilityGradeType, DE: DeviceType
 
 if (browser.mobile) {
 	DE = 'mobile'

@@ -1,0 +1,12 @@
+@import '../../styles/themesManager.css';
+
+.divider {
+	display: block;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	& .content {
+		cursor: default;
+	}
+}

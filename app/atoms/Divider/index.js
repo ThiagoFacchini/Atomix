@@ -7,7 +7,7 @@
 // --------------------------------------------------------
 
 
-// Title
+// Divider
 //
 //
 
@@ -15,7 +15,6 @@
 // REACT / REDUX IMPORTS
 // --------------------------------------------------------
 import React from 'react'
-import _ from 'lodash'
 
 import Animator from '../../protons/Animator'
 import type {
@@ -25,16 +24,12 @@ import type {
 
 import type {
 	ComponentSize,
-	ComponentAlignment
 } from '../../neutrons/Types'
 
 import {
 	DEFAULT_THEME,
 	DEFAULT_DEVICE,
 	DEFAULT_SIZE,
-	DEFAULT_ALIGNMENT,
-	DEFAULT_IS_USER_SELECTABLE,
-	DEFAULT_NOT_USER_SELECTABLE_CLASS,
 	DEFAULT_IS_COMPONENT_ENABLE,
 	DEFAULT_IS_DISABLED_CLASS,
 } from '../../neutrons/Defaults'
@@ -50,17 +45,21 @@ import styles from './styles.css'
 // --------------------------------------------------------
 // ATOM PROPERTIES DEFINITION
 // --------------------------------------------------------
+export type DividerTypes = 'solid' | 'dotted' | 'dashed'| 'ridge'
+
 type PropTypes = {
-	children: ?any,
 	theme: ?string,
 	device: ?string,
-	size?: ComponentSize,
-	isUserSelectable?: boolean,
-	isEnabled?: boolean,
-	alignment?: ComponentAlignment,
+	size: ComponentSize,
+	type: ?DividerTypes,
+	paddingTop: ?number,
+	paddingBottom: ?number,
+	paddingLeft: ?number,
+	paddingRight: ?number,
 	animationType?: AnimationType,
 	animationName?: string,
-	animationBehaviour?: AnimationBehaviour
+	animationBehaviour?: AnimationBehaviour,
+	isEnabled?: boolean
 }
 // --------------------------------------------------------
 
@@ -68,17 +67,19 @@ type PropTypes = {
 // DEFINES ATOM DEFAULT PROPERTIES
 // --------------------------------------------------------
 const _defaultProps = {
-	children: null,
 	theme: DEFAULT_THEME,
 	device: DEFAULT_DEVICE,
 	size: DEFAULT_SIZE,
-	isUserSelectable: DEFAULT_IS_USER_SELECTABLE,
-	isEnabled: DEFAULT_IS_COMPONENT_ENABLE,
-	alignment: DEFAULT_ALIGNMENT,
+	type: 'solid',
+	paddingTop: 5,
+	paddingBottom: 5,
+	paddingLeft: 5,
+	paddingRight: 5,
+	isEnabled: DEFAULT_IS_COMPONENT_ENABLE
 }
 // --------------------------------------------------------
 
-function Title (props: PropTypes) {
+function Divider (props: PropTypes) {
 	// --------------------------------------------------------
 	// ATOM PRIVATE FUNCTION & VARIABLE DECLARATIONS
 	// --------------------------------------------------------
@@ -88,61 +89,42 @@ function Title (props: PropTypes) {
 	 * @param       {Object} props Title component properties
 	 * @return      {ReactComponent} Containing the child, or null
 	 */
-	function _getRenderElement (props: Object): Object | null {
-		if (_.isString(props.children)) {
-			if (props.animationType && props.animationName && props.animationBehaviour) {
-				return (
-					<Animator
-						type={props.animationType}
-						name={props.animationName}
-						behaviour={props.animationBehaviour}
-					>
-						{ _getTitleComponent(props.children) }
-					</Animator>
-				)
-			} else {
-				return _getTitleComponent(props.children)
-			}
+	function _getRenderElement (props: Object): Object {
+		if (props.animationType && props.animationName && props.animationBehaviour) {
+			return (
+				<Animator
+					type={props.animationType}
+					name={props.animationName}
+					behaviour={props.animationBehaviour}
+				>
+					{ _getDividerComponent(props) }
+				</Animator>
+			)
 		} else {
-			// @TODO Hook into a log system
-			return null
+			return _getDividerComponent(props)
 		}
 	}
 
 	/**
-	 * Build the title component
-	 * @param       {string} children Text to be rendered as title
-	 * @return      {ReactComponent} Title component
+	 * Build the Divider component
+	 * @param       {Object} props Component properties
+	 * @return      {ReactComponent} Divider component
 	 */
-	function _getTitleComponent (children: string): Object {
+	function _getDividerComponent (props: Object): Object {
+		const dividerStyle = {
+			borderStyle: props.type
+		}
 		return (
-			<div className={classNames(
+			<div style={ dividerStyle } className={classNames(
 				styles.content,
 				styles[props.size],
-				styles[_isUserSelectable(props.isUserSelectable)],
-				styles[_isEnabled(props.isEnabled)],
-				styles[props.alignment],
-			)}>
-				{children}
-			</div>
+				styles[_isEnabled(props.isEnabled)]
+			)} />
 		)
 	}
 
 	/**
-	 * Check if the title can be selected
-	 * @param       {?boolean}  isUserSelectable component property
-	 * @return      {string | null}  String containing user-select class or null
-	 */
-	function _isUserSelectable (isUserSelectable: ?boolean): string | null {
-		if (isUserSelectable) {
-			return null
-		} else {
-			return DEFAULT_NOT_USER_SELECTABLE_CLASS
-		}
-	}
-
-	/**
-	 * Check if the title is enabled
+	 * Check if the Divider is enabled
 	 * @param       {Boolean} isEnabled Boolean containing the component definition
 	 * @return      {string | null} String containing a css class that defines if the component is enabled or null
 	 */
@@ -154,6 +136,21 @@ function Title (props: PropTypes) {
 		}
 	}
 
+	/**
+	 * Create the custom style object
+	 * @param       {Object} props Component properties
+	 * @return      {Object} Custom style object
+	 */
+	function _getCustomStyles (props: Object): Object {
+		const customStyle = {
+			paddingTop: props.paddingTop,
+			paddingBottom: props.paddingBottom,
+			paddingLeft: props.paddingLeft,
+			paddingRight: props.paddingRight
+		}
+		return customStyle
+	}
+
 	const renderElement: Object | null = _getRenderElement(props)
 	// --------------------------------------------------------
 
@@ -161,12 +158,12 @@ function Title (props: PropTypes) {
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
 	return (
-		<div className={classNames(styles.title, styles[props.theme], styles[props.device])}>
+		<div style={_getCustomStyles(props)} className={classNames(styles.divider, styles[props.theme], styles[props.device])}>
 			{renderElement}
 		</div>
 	)
 	// --------------------------------------------------------
 }
 
-Title.defaultProps = _defaultProps
-export default Title
+Divider.defaultProps = _defaultProps
+export default Divider
