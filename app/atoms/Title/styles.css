@@ -8,9 +8,14 @@
 
 	& .content {
 		/* USER SELECTABLE */
-		&.notUserSelectable {
+		&.unselectable {
 			user-select: none;
 			cursor: default;
+		}
+
+		&.selectable {
+			user-select: text;
+			cursor: text;
 		}
 
 		/* ALIGNMENT */

@@ -30,11 +30,35 @@
 	--computer-default-text-color-2: #777;
 	--computer-default-text-color-3: #CCC;
 	--computer-default-text-color-4: #E3E3E3;
+	--computer-default-text-color-5: #1BA39C;
+	--computer-default-text-color-6: #F5AB35;
+	--computer-default-text-color-7: #C0392B;
 
 	/* UIKIT VARIABLES */
-	--computer-default-title-color: var(--computer-default-text-color-1);
-	--computer-default-subtitle-color: var(--computer-default-text-color-2);
-	--computer-default-text-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-title-color-enabled: var(--computer-default-text-color-1);
+	--computer-default-title-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-title-color-success: var(--computer-default-text-color-5);
+	--computer-default-title-color-warning: var(--computer-default-text-color-6);
+	--computer-default-title-color-error: var(--computer-default-text-color-7);
+
+	--computer-default-subtitle-color-enabled: var(--computer-default-text-color-2);
+	--computer-default-subtitle-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-subtitle-color-success: var(--computer-default-text-color-5);
+	--computer-default-subtitle-color-warning: var(--computer-default-text-color-6);
+	--computer-default-subtitle-color-error: var(--computer-default-text-color-7);
+
+	--computer-default-glyph-color-enabled: var(--computer-default-text-color-2);
+	--computer-default-glyph-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-glyph-color-success: var(--computer-default-text-color-5);
+	--computer-default-glyph-color-warning: var(--computer-default-text-color-6);
+	--computer-default-glyph-color-error: var(--computer-default-text-color-7);
+
+	--computer-default-divider-color-enabled: var(--computer-default-text-color-2);
+	--computer-default-divider-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-divider-color-success: var(--computer-default-text-color-5);
+	--computer-default-divider-color-warning: var(--computer-default-text-color-6);
+	--computer-default-divider-color-error: var(--computer-default-text-color-7);
+
 	--computer-default-border-color-divider: var(--computer-default-text-color-3);
 	--computer-default-border-color-divider-disabled: var(--computer-default-text-color-4);
 }
@@ -56,10 +80,24 @@
 /* ATOM: TITLE */
 .default.title {
 	&.computer {
-		color: var(--computer-default-title-color);
+		& .enabled {
+			color: var(--computer-default-title-color-enabled);
+		}
 
 		& .disabled {
-			color: var(--computer-default-text-color-disabled);
+			color: var(--computer-default-title-color-disabled);
+		}
+
+		& .success {
+			color: var(--computer-default-title-color-success);
+		}
+
+		& .warning {
+			color: var(--computer-default-title-color-warning);
+		}
+
+		& .error {
+			color: var(--computer-default-title-color-error);
 		}
 
 		& .xs {
@@ -92,10 +130,24 @@
 /* ATOM: SUBTITLE */
 .default.subtitle {
 	&.computer {
-		color: var(--computer-default-subtitle-color);
+		& .enabled {
+			color: var(--computer-default-subtitle-color-enabled);
+		}
 
 		& .disabled {
-			color: var(--computer-default-text-color-disabled);
+			color: var(--computer-default-subtitle-color-disabled);
+		}
+
+		& .success {
+			color: var(--computer-default-subtitle-color-success);
+		}
+
+		& .warning {
+			color: var(--computer-default-subtitle-color-warning);
+		}
+
+		& .error {
+			color: var(--computer-default-subtitle-color-error);
 		}
 
 		& .xs {
@@ -123,10 +175,24 @@
 /* ATOM: GLYPH */
 .default.glyph {
 	&.computer {
-		color: var(--computer-default-title-color);
+		& .enabled {
+			color: var(--computer-default-glyph-color-enabled);
+		}
 
 		& .disabled {
-			color: var(--computer-default-text-color-disabled);
+			color: var(--computer-default-glyph-color-disabled);
+		}
+
+		& .success {
+			color: var(--computer-default-glyph-color-success);
+		}
+
+		& .warning {
+			color: var(--computer-default-glyph-color-warning);
+		}
+
+		& .error {
+			color: var(--computer-default-glyph-color-error);
 		}
 
 		& .xs {
@@ -155,10 +221,24 @@
 .default.divider {
 	&.computer {
 		& .content {
-			border-color: var(--computer-default-border-color-divider);
+			&.enabled {
+				border-color: var(--computer-default-divider-color-enabled);
+			}
 
 			&.disabled {
-				border-color: var(--computer-default-border-color-divider-disabled);
+				border-color: var(--computer-default-divider-color-disabled);
+			}
+
+			&.success {
+				border-color: var(--computer-default-divider-color-success);
+			}
+
+			&.warning {
+				border-color: var(--computer-default-divider-color-warning);
+			}
+
+			&.error {
+				border-color: var(--computer-default-divider-color-error);
 			}
 		}
 

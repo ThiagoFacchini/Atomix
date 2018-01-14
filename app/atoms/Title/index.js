@@ -26,18 +26,19 @@ import type {
 
 import type {
 	ComponentSize,
-	ComponentAlignment
+	ComponentAlignment,
+	ComponentStatus
 } from '../../neutrons/Types'
 
 import {
 	DEFAULT_THEME,
 	DEFAULT_DEVICE,
-	DEFAULT_SIZE,
-	DEFAULT_ALIGNMENT,
-	DEFAULT_IS_USER_SELECTABLE,
-	DEFAULT_NOT_USER_SELECTABLE_CLASS,
-	DEFAULT_IS_COMPONENT_ENABLE,
-	DEFAULT_IS_DISABLED_CLASS,
+	DEFAULT_COMPONENT_SIZE,
+	DEFAULT_COMPONENT_ALIGNMENT,
+	DEFAULT_COMPONENT_IS_SELECTABLE,
+	DEFAULT_COMPONENT_IS_SELECTABLE_CLASS,
+	DEFAULT_COMPONENT_IS_NOT_SELECTABLE_CLASS,
+	DEFAULT_COMPONENT_STATUS,
 	DEFAULT_ANIMATION_BEHAVIOUR,
 	DEFAULT_ANIMATION_DURATION
 } from '../../neutrons/Defaults'
@@ -58,8 +59,8 @@ type PropTypes = {
 	theme: ?string,
 	device: ?string,
 	size?: ComponentSize,
-	isUserSelectable?: boolean,
-	isEnabled?: boolean,
+	isSelectable?: boolean,
+	status?: ComponentStatus,
 	alignment?: ComponentAlignment,
 	animationType?: AnimationType,
 	animationName?: string,
@@ -75,10 +76,6 @@ const _defaultProps = {
 	children: null,
 	theme: DEFAULT_THEME,
 	device: DEFAULT_DEVICE,
-	size: DEFAULT_SIZE,
-	isUserSelectable: DEFAULT_IS_USER_SELECTABLE,
-	isEnabled: DEFAULT_IS_COMPONENT_ENABLE,
-	alignment: DEFAULT_ALIGNMENT,
 }
 // --------------------------------------------------------
 
@@ -102,11 +99,11 @@ function Title (props: PropTypes) {
 						behaviour={_getAnimationBehaviour(props.animationBehaviour)}
 						duration={_getAnimationDuration(props.animationDuration)}
 					>
-						{ _getTitleComponent(props.children) }
+						{ _getTitleComponent(props) }
 					</Animator>
 				)
 			} else {
-				return _getTitleComponent(props.children)
+				return _getTitleComponent(props)
 			}
 		} else {
 			// @TODO Hook into a log system
@@ -142,46 +139,83 @@ function Title (props: PropTypes) {
 
 	/**
 	 * Build the title component
-	 * @param       {string} children Text to be rendered as title
+	 * @param       {Object} children Text to be rendered as title
 	 * @return      {ReactComponent} Title component
 	 */
-	function _getTitleComponent (children: string): Object {
+	function _getTitleComponent (props: Object): Object {
 		return (
 			<div className={classNames(
 				styles.content,
-				styles[props.size],
-				styles[_isUserSelectable(props.isUserSelectable)],
-				styles[_isEnabled(props.isEnabled)],
-				styles[props.alignment],
+				styles[_getComponentSize(props.size)],
+				styles[_getComponentStatus(props.status)],
+				styles[_getComponentAlignment(props.alignment)],
+				styles[_isComponentSelectable(props.isSelectable)],
 			)}>
-				{children}
+				{ props.children }
 			</div>
 		)
 	}
 
 	/**
-	 * Check if the title can be selected
-	 * @param       {?boolean}  isUserSelectable component property
-	 * @return      {string | null}  String containing user-select class or null
+	 * Define component size
+	 * @param       {ComponentSize | null} size Component property
+	 * @constructor
+	 * @return      {ComponentSize} Component Size class or default class
 	 */
-	function _isUserSelectable (isUserSelectable: ?boolean): string | null {
-		if (isUserSelectable) {
-			return null
+	function _getComponentSize (size: ComponentSize | null): ComponentSize {
+		if (size) {
+			return size
 		} else {
-			return DEFAULT_NOT_USER_SELECTABLE_CLASS
+			return DEFAULT_COMPONENT_SIZE
 		}
 	}
 
 	/**
-	 * Check if the title is enabled
-	 * @param       {Boolean} isEnabled Boolean containing the component definition
-	 * @return      {string | null} String containing a css class that defines if the component is enabled or null
+	 * Define component status
+	 * @param       {ComponentStatus | null} status Component property
+	 * @constructor
+	 * @return      {ComponentStatus} Component Status class or default class
 	 */
-	function _isEnabled (isEnabled: ?boolean): string | null {
-		if (isEnabled) {
-			return null
+	function _getComponentStatus (status: ComponentStatus | null): ComponentStatus {
+		if (status) {
+			return status
 		} else {
-			return DEFAULT_IS_DISABLED_CLASS
+			return DEFAULT_COMPONENT_STATUS
+		}
+	}
+
+	/**
+	 * Define component alignment
+	 * @param       {ComponentAlignment | null} alignment Component property
+	 * @constructor
+	 * @return      {ComponentAlignment } Component Alignment class or default class
+	 */
+	function _getComponentAlignment (alignment: ComponentAlignment | null): ComponentAlignment {
+		if (alignment) {
+			return alignment
+		} else {
+			return DEFAULT_COMPONENT_ALIGNMENT
+		}
+	}
+
+	/**
+	 * Check if the title can be selected
+	 * @param       {boolean | null}  isComponentSelectable component property
+	 * @return      {string }  String containing user-select class or default class
+	 */
+	function _isComponentSelectable (isComponentSelectable: boolean | null): string {
+		let isSelectable
+
+		if (isComponentSelectable === null) {
+			isSelectable = DEFAULT_COMPONENT_IS_SELECTABLE
+		} else {
+			isSelectable = isComponentSelectable
+		}
+
+		if (isSelectable) {
+			return DEFAULT_COMPONENT_IS_SELECTABLE_CLASS
+		} else {
+			return DEFAULT_COMPONENT_IS_NOT_SELECTABLE_CLASS
 		}
 	}
 

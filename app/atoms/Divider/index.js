@@ -25,14 +25,14 @@ import type {
 
 import type {
 	ComponentSize,
+	ComponentStatus
 } from '../../neutrons/Types'
 
 import {
 	DEFAULT_THEME,
 	DEFAULT_DEVICE,
-	DEFAULT_SIZE,
-	DEFAULT_IS_COMPONENT_ENABLE,
-	DEFAULT_IS_DISABLED_CLASS,
+	DEFAULT_COMPONENT_SIZE,
+	DEFAULT_COMPONENT_STATUS,
 	DEFAULT_ANIMATION_BEHAVIOUR,
 	DEFAULT_ANIMATION_DURATION
 } from '../../neutrons/Defaults'
@@ -50,20 +50,26 @@ import styles from './styles.css'
 // --------------------------------------------------------
 export type DividerTypes = 'solid' | 'dotted' | 'dashed'| 'ridge'
 
+const DEFAULT_TYPE: DividerTypes = 'solid'
+const DEFAULT_PADDING_TOP: number = 5
+const DEFAULT_PADDING_BOTTOM: number = 5
+const DEFAULT_PADDING_LEFT: number = 5
+const DEFAULT_PADDING_RIGHT: number = 5
+
 type PropTypes = {
 	theme: ?string,
 	device: ?string,
-	size: ComponentSize,
 	type: ?DividerTypes,
-	paddingTop: ?number,
-	paddingBottom: ?number,
-	paddingLeft: ?number,
-	paddingRight: ?number,
+	paddingTop?: number,
+	paddingBottom?: number,
+	paddingLeft?: number,
+	paddingRight?: number,
+	size?: ComponentSize,
 	animationType?: AnimationType,
 	animationName?: string,
 	animationBehaviour?: AnimationBehaviour,
 	animationDuration?: AnimationDuration,
-	isEnabled?: boolean
+	status?: ComponentStatus
 }
 // --------------------------------------------------------
 
@@ -73,13 +79,7 @@ type PropTypes = {
 const _defaultProps = {
 	theme: DEFAULT_THEME,
 	device: DEFAULT_DEVICE,
-	size: DEFAULT_SIZE,
-	type: 'solid',
-	paddingTop: 5,
-	paddingBottom: 5,
-	paddingLeft: 5,
-	paddingRight: 5,
-	isEnabled: DEFAULT_IS_COMPONENT_ENABLE
+	type: DEFAULT_TYPE,
 }
 // --------------------------------------------------------
 
@@ -148,22 +148,37 @@ function Divider (props: PropTypes) {
 		return (
 			<div style={ dividerStyle } className={classNames(
 				styles.content,
-				styles[props.size],
-				styles[_isEnabled(props.isEnabled)]
+				styles[_getComponentSize(props.size)],
+				styles[_getComponentStatus(props.status)],
 			)} />
 		)
 	}
 
 	/**
-	 * Check if the Divider is enabled
-	 * @param       {Boolean} isEnabled Boolean containing the component definition
-	 * @return      {string | null} String containing a css class that defines if the component is enabled or null
+	 * Define component size
+	 * @param       {ComponentSize | null} size Component property
+	 * @constructor
+	 * @return      {ComponentSize} Component Size class or default class
 	 */
-	function _isEnabled (isEnabled: ?boolean): string | null {
-		if (isEnabled) {
-			return null
+	function _getComponentSize (size: ComponentSize | null): ComponentSize {
+		if (size) {
+			return size
 		} else {
-			return DEFAULT_IS_DISABLED_CLASS
+			return DEFAULT_COMPONENT_SIZE
+		}
+	}
+
+	/**
+	 * Define component status
+	 * @param       {ComponentStatus | null} status Component property
+	 * @constructor
+	 * @return      {ComponentStatus} Component Status class or default class
+	 */
+	function _getComponentStatus (status: ComponentStatus | null): ComponentStatus {
+		if (status) {
+			return status
+		} else {
+			return DEFAULT_COMPONENT_STATUS
 		}
 	}
 
@@ -173,12 +188,39 @@ function Divider (props: PropTypes) {
 	 * @return      {Object} Custom style object
 	 */
 	function _getCustomStyles (props: Object): Object {
-		const customStyle = {
-			paddingTop: props.paddingTop,
-			paddingBottom: props.paddingBottom,
-			paddingLeft: props.paddingLeft,
-			paddingRight: props.paddingRight
+		let paddingTop: number, paddingBottom: number, paddingLeft: number, paddingRight: number
+
+		if (props.paddingTop) {
+			paddingTop = props.paddingTop
+		} else {
+			paddingTop = DEFAULT_PADDING_TOP
 		}
+
+		if (props.paddingBottom) {
+			paddingBottom = props.paddingBottom
+		} else {
+			paddingBottom = DEFAULT_PADDING_BOTTOM
+		}
+
+		if (props.paddingLeft) {
+			paddingLeft = props.paddingLeft
+		} else {
+			paddingLeft = DEFAULT_PADDING_LEFT
+		}
+
+		if (props.paddingRight) {
+			paddingRight = props.paddingRight
+		} else {
+			paddingRight = DEFAULT_PADDING_RIGHT
+		}
+
+		const customStyle = {
+			paddingTop: paddingTop,
+			paddingBottom: paddingBottom,
+			paddingLeft: paddingLeft,
+			paddingRight: paddingRight
+		}
+
 		return customStyle
 	}
 

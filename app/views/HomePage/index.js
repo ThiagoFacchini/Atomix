@@ -141,7 +141,9 @@ export class HomePage extends React.Component<PropTypes> {
 							<Title
 								theme={this.props.themeManager.theme.get()}
 								device={this.props.themeManager.device.get()}
-								isUserSelectable={false}
+								isSelectable={true}
+								status='error'
+								alignment='right'
 								animationType="attention_seekers"
 								animationName="bounce"
 								animationBehaviour="animateOnce"
@@ -151,7 +153,9 @@ export class HomePage extends React.Component<PropTypes> {
 							<Subtitle
 								theme={this.props.themeManager.theme.get()}
 								device={this.props.themeManager.device.get()}
-								isUserSelectable={false}
+								isSelectable={false}
+								status='success'
+								alignment='right'
 								animationType="fading_entrances"
 								animationName="fadeInLeft"
 								animationBehaviour="animateOnce"
@@ -169,7 +173,7 @@ export class HomePage extends React.Component<PropTypes> {
 								animationName="slideInLeft"
 								animationBehaviour="animateOnce"
 								animationDuration="verylong"
-								isEnabled={false}
+								status="warning"
 							/>
 						</div>
 					</FlexCol>
@@ -182,7 +186,7 @@ export class HomePage extends React.Component<PropTypes> {
 					<br/>
 					<br/>
 					<br/>
-					testing
+
 					<Glyph
 						family="ionicons"
 						name="ios-flower-outline"
@@ -191,6 +195,7 @@ export class HomePage extends React.Component<PropTypes> {
 						animationType="attention_seekers"
 						animationName="bounce"
 						animationBehaviour="animateOnce"
+						status="disabled"
 					/>
 					<Animator
 						type="attention_seekers"

@@ -10,8 +10,8 @@
 // REACT / REDUX IMPORTS
 // --------------------------------------------------------
 import React from 'react'
-
 import Animator from '../../protons/Animator'
+
 import type {
 	AnimationType,
 	AnimationBehaviour,
@@ -20,16 +20,16 @@ import type {
 
 import type {
 	ComponentSize,
-	ComponentAlignment
+	ComponentAlignment,
+	ComponentStatus
 } from '../../neutrons/Types'
 
 import {
 	DEFAULT_THEME,
 	DEFAULT_DEVICE,
-	DEFAULT_SIZE,
-	DEFAULT_ALIGNMENT,
-	DEFAULT_IS_COMPONENT_ENABLE,
-	DEFAULT_IS_DISABLED_CLASS,
+	DEFAULT_COMPONENT_SIZE,
+	DEFAULT_COMPONENT_ALIGNMENT,
+	DEFAULT_COMPONENT_STATUS,
 	DEFAULT_ANIMATION_BEHAVIOUR,
 	DEFAULT_ANIMATION_DURATION
 } from '../../neutrons/Defaults'
@@ -50,15 +50,15 @@ import justvectorsocial from './libs/justVectorSocial/just-vector-social.css'
 // --------------------------------------------------------
 // ATOM PROPERTIES DEFINITION
 // --------------------------------------------------------
-export type IconFamily = 'fontawesome' | 'ionicons' | 'justvectorsocial'
+export type GlyphFamily = 'fontawesome' | 'ionicons' | 'justvectorsocial'
 
 type PropTypes = {
 	theme: ?string,
 	device: ?string,
-	size?: ComponentSize,
-	family?: IconFamily,
+	family: GlyphFamily,
 	name: string,
-	isEnabled?: boolean,
+	size?: ComponentSize,
+	status?: ComponentStatus,
 	alignment?: ComponentAlignment,
 	animationType?: AnimationType,
 	animationName?: string,
@@ -73,10 +73,7 @@ type PropTypes = {
 const _defaultProps = {
 	theme: DEFAULT_THEME,
 	device: DEFAULT_DEVICE,
-	size: DEFAULT_SIZE,
-	family: 'fontawesome',
-	isEnabled: DEFAULT_IS_COMPONENT_ENABLE,
-	alignment: DEFAULT_ALIGNMENT,
+	size: DEFAULT_COMPONENT_SIZE,
 }
 // --------------------------------------------------------
 
@@ -142,9 +139,9 @@ function Glyph (props: PropTypes) {
 		return (
 			<div className={classNames(
 				styles.content,
-				styles[props.size],
-				styles[_isEnabled(props.isEnabled)],
-				styles[props.alignment],
+				styles[_getComponentSize(props.size)],
+				styles[_getComponentStatus(props.status)],
+				styles[_getComponentAlignment(props.alignment)],
 				_getGlyphClass(props.family, props.name)
 			)}>
 			</div>
@@ -152,12 +149,54 @@ function Glyph (props: PropTypes) {
 	}
 
 	/**
+	 * Define component size
+	 * @param       {ComponentSize | null} size Component property
+	 * @constructor
+	 * @return      {ComponentSize} Component Size class or default class
+	 */
+	function _getComponentSize (size: ComponentSize | null): ComponentSize {
+		if (size) {
+			return size
+		} else {
+			return DEFAULT_COMPONENT_SIZE
+		}
+	}
+
+	/**
+	 * Define component status
+	 * @param       {ComponentStatus | null} status Component property
+	 * @constructor
+	 * @return      {ComponentStatus} Component Status class or default class
+	 */
+	function _getComponentStatus (status: ComponentStatus | null): ComponentStatus {
+		if (status) {
+			return status
+		} else {
+			return DEFAULT_COMPONENT_STATUS
+		}
+	}
+
+	/**
+	 * Define component alignment
+	 * @param       {ComponentAlignment | null} alignment Component property
+	 * @constructor
+	 * @return      {ComponentAlignment } Component Alignment class or default class
+	 */
+	function _getComponentAlignment (alignment: ComponentAlignment | null): ComponentAlignment {
+		if (alignment) {
+			return alignment
+		} else {
+			return DEFAULT_COMPONENT_ALIGNMENT
+		}
+	}
+
+	/**
 	 * Define the Glyph Family & Type
-	 * @param       {IconFamily} family The Glyph Family
+	 * @param       {GlyphFamily} family The Glyph Family
 	 * @param       {string} name The Glyph name
 	 * @return      {any | null} The class containing the Glyph definition or null
 	 */
-	function _getGlyphClass (family: ?IconFamily, name: string): any | null {
+	function _getGlyphClass (family: GlyphFamily, name: string): any | null {
 		switch (family) {
 		case 'fontawesome':
 			return fontawesome[`fontawesome-${name}`]
@@ -168,19 +207,6 @@ function Glyph (props: PropTypes) {
 		default:
 			// @TODO - Hook into the log
 			break
-		}
-	}
-
-	/**
-	 * Check if the glyph is enabled
-	 * @param       {Boolean} isEnabled Boolean containing the component definition
-	 * @return      {string | null} String containing a css class that defines if the component is enabled or null
-	 */
-	function _isEnabled (isEnabled: ?boolean): string | null {
-		if (isEnabled) {
-			return null
-		} else {
-			return DEFAULT_IS_DISABLED_CLASS
 		}
 	}
 
