@@ -1,4 +1,51 @@
 @import '../../styles/themesManager.css';
 
 .header {
+	& .flexWrapper {
+		display: flex;
+
+		& .iconContainer {
+			flex-grow: 0;
+			line-height: 1;
+		}
+
+		& .contentContainer {
+			flex-grow: 1;
+
+			&.xs {
+				padding-left: 10px;
+			}
+
+			&.sm {
+				padding-left: 10px;
+			}
+
+			&.md {
+				padding-left: 10px;
+			}
+
+			&.lg {
+				padding-left: 15px;
+			}
+
+			&.xl {
+				padding-left: 20px;
+			}
+
+			& .titleContainer {
+				line-height: 1.2;
+				margin-bottom: 5px;
+			}
+
+			& .subtitleContainer {
+				line-height: 1;
+			}
+		}
+
+		& .dividerContainer {
+			display: block;
+			background-color: salmon;
+			width: 100%;
+		}
+	}
 }

@@ -73,7 +73,6 @@ type PropTypes = {
 const _defaultProps = {
 	theme: DEFAULT_THEME,
 	device: DEFAULT_DEVICE,
-	size: DEFAULT_COMPONENT_SIZE,
 }
 // --------------------------------------------------------
 

@@ -7,6 +7,7 @@
 	overflow: hidden;
 
 	& .content {
+		/* line-height: initial; */
 
 		/* ALIGNMENT */
 		&.left {

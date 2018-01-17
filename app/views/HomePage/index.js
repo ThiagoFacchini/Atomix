@@ -141,7 +141,7 @@ export class HomePage extends React.Component<PropTypes> {
 							<Title
 								theme={this.props.themeManager.theme.get()}
 								device={this.props.themeManager.device.get()}
-								isSelectable={true}
+								isSelectable={false}
 								status='error'
 								alignment='right'
 								animationType="attention_seekers"
@@ -178,10 +178,38 @@ export class HomePage extends React.Component<PropTypes> {
 						</div>
 					</FlexCol>
 
-					<Header>
-						<Title> oi </Title>
-						<Subtitle> sub </Subtitle>
+					<br/>
+					<br/>
+					<br/>
+
+
+					<Header
+						// size='lg'
+						animationType="bouncing_entrances"
+						animationName="bounceIn"
+						animationBehaviour="animateOnce"
+						animationDuration="short"
+					>
+						<Title>
+							Homepage
+						</Title>
+						<Subtitle>
+							Lorem impsum dollor sit amet consectutor lorem impsum
+						</Subtitle>
+						<Glyph
+							family='fontawesome'
+							name='mars-stroke'
+						/>
+						<Divider
+							animationType="sliding_entrances"
+							animationName="slideInLeft"
+							animationBehaviour="animateOnce"
+							animationDuration="verylong"
+							paddingLeft={0}
+							size='xs'
+						/>
 					</Header>
+
 
 					<br/>
 					<br/>

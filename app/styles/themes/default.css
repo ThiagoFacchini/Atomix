@@ -6,11 +6,11 @@
 /* Variables goes inside root, classes definition inside .default */
 :root {
 	--computer-default-font-family: RobotoLight;
-	--computer-default-font-size-xs-1: 20px;
+	--computer-default-font-size-xs-1: 35px;
 	--computer-default-font-size-xs-2: 16px;
 	--computer-default-font-size-xs-3: 12px;
 
-	--computer-default-font-size-sm-1: 35px;
+	--computer-default-font-size-sm-1: 45px;
 	--computer-default-font-size-sm-2: 20px;
 	--computer-default-font-size-sm-3: 15px;
 
@@ -18,11 +18,11 @@
 	--computer-default-font-size-md-2: 24px;
 	--computer-default-font-size-md-3: 17px;
 
-	--computer-default-font-size-lg-1: 65px;
+	--computer-default-font-size-lg-1: 60px;
 	--computer-default-font-size-lg-2: 30px;
 	--computer-default-font-size-lg-3: 19px;
 
-	--computer-default-font-size-xl-1: 80px;
+	--computer-default-font-size-xl-1: 70px;
 	--computer-default-font-size-xl-2: 34px;
 	--computer-default-font-size-xl-3: 21px;
 
@@ -47,7 +47,7 @@
 	--computer-default-subtitle-color-warning: var(--computer-default-text-color-6);
 	--computer-default-subtitle-color-error: var(--computer-default-text-color-7);
 
-	--computer-default-glyph-color-enabled: var(--computer-default-text-color-2);
+	--computer-default-glyph-color-enabled: var(--computer-default-text-color-1);
 	--computer-default-glyph-color-disabled: var(--computer-default-text-color-3);
 	--computer-default-glyph-color-success: var(--computer-default-text-color-5);
 	--computer-default-glyph-color-warning: var(--computer-default-text-color-6);
