@@ -1,51 +1,79 @@
 @import '../../styles/themesManager.css';
 
 .header {
-	& .flexWrapper {
+	& .rightFlexWrapper,
+	& .leftFlexWrapper {
 		display: flex;
 
-		& .iconContainer {
+		& .glyphContainer {
 			flex-grow: 0;
 			line-height: 1;
+			padding-top: 5px;
 		}
 
 		& .contentContainer {
 			flex-grow: 1;
+			display: flex;
+			flex-wrap: wrap;
 
-			&.xs {
-				padding-left: 10px;
-			}
-
-			&.sm {
-				padding-left: 10px;
-			}
-
+			&.xs,
+			&.sm,
 			&.md {
 				padding-left: 10px;
+				padding-right: 10px;
 			}
 
 			&.lg {
 				padding-left: 15px;
+				padding-right: 15px;
 			}
 
 			&.xl {
 				padding-left: 20px;
+				padding-right: 20px;
 			}
 
 			& .titleContainer {
+				align-self: center;
 				line-height: 1.2;
-				margin-bottom: 5px;
+				width: 100%;
 			}
 
 			& .subtitleContainer {
 				line-height: 1;
+				width: 100%;
 			}
 		}
 
 		& .dividerContainer {
 			display: block;
-			background-color: salmon;
 			width: 100%;
+		}
+	}
+
+	& .centerFlexWrapper {
+		display: flex;
+		flex-direction: column;
+
+		& .glyphContainer {
+			flex-grow: 0;
+			line-height: 1;
+			padding-top: 5px;
+		}
+
+		& .titleContainer {
+			align-self: center;
+			line-height: 1.5;
+			width: 100%;
+		}
+
+		& .subtitleContainer {
+			line-height: 1;
+			width: 100%;
+		}
+
+		& .dividerContainer {
+			margin-top: 10px;
 		}
 	}
 }

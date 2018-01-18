@@ -184,7 +184,8 @@ export class HomePage extends React.Component<PropTypes> {
 
 
 					<Header
-						// size='lg'
+						size='md'
+						alignment='center'
 						animationType="bouncing_entrances"
 						animationName="bounceIn"
 						animationBehaviour="animateOnce"

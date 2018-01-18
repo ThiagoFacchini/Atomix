@@ -43,12 +43,6 @@ import {
 	DEFAULT_DEVICE,
 	DEFAULT_COMPONENT_SIZE,
 	DEFAULT_COMPONENT_ALIGNMENT,
-	DEFAULT_COMPONENT_IS_SELECTABLE,
-	DEFAULT_COMPONENT_IS_SELECTABLE_CLASS,
-	DEFAULT_COMPONENT_IS_NOT_SELECTABLE_CLASS,
-	DEFAULT_COMPONENT_STATUS,
-	DEFAULT_ANIMATION_BEHAVIOUR,
-	DEFAULT_ANIMATION_DURATION
 } from '../../neutrons/Defaults'
 // --------------------------------------------------------
 
@@ -98,7 +92,10 @@ function Header (props: PropTypes) {
 	 * @return      {ReactComponent} Containing the child, or null
 	 */
 	function _getRenderElement (props: Object): any {
-		let titleComponent, subtitleComponent, glyphComponent, dividerComponent
+		let titleComponent: Object | null = null
+		let subtitleComponent: Object | null = null
+		let glyphComponent: Object | null = null
+		let dividerComponent: Object | null = null
 
 		props.children.map((child, index) => {
 			const filteredProps = _.omit(props, ['children'])
@@ -121,53 +118,26 @@ function Header (props: PropTypes) {
 			}
 		})
 
-		return _populateLayout(props.alignment, props.size, titleComponent, subtitleComponent, glyphComponent, dividerComponent)
+		let componentAlignment: ComponentAlignment = DEFAULT_COMPONENT_ALIGNMENT
+		if (props.alignment) componentAlignment = props.alignment
+
+		let componentSize: ComponentSize = DEFAULT_COMPONENT_SIZE
+		if (props.size) componentSize = props.size
+
+		if (!titleComponent) {
+			// @TODO Hook it into the console tool
+			return null
+		}
+
+		return _populateLayout(componentAlignment, componentSize, titleComponent, subtitleComponent, glyphComponent, dividerComponent)
 	}
 
-	function _populateLayout (alignment?: ComponentAlignment, size?: ComponentSize, titleComponent?: React$Component<*>, subtitleComponent?: React$Component<*>, glyphComponent?: React$Component<*>, dividerComponent?: React$Component<*>): any {
-		let layoutAlignment = DEFAULT_COMPONENT_ALIGNMENT
-		let moleculeSize = DEFAULT_COMPONENT_SIZE
-
-		if (alignment) {
-			layoutAlignment = alignment
-		}
-
-		if (props.size) {
-			moleculeSize = props.size
-		}
-
-		const _leftAlignedLayout: Function = function (): Object {
-			return (
-				<div>
-					<div className={classNames(styles.flexWrapper)}>
-						<div className={classNames(styles.iconContainer)}>
-							{ glyphComponent }
-						</div>
-						<div className={classNames(styles.contentContainer, styles[moleculeSize])}>
-							<div className={classNames(styles.titleContainer)}>
-								{ titleComponent }
-							</div>
-							<div className={classNames(styles.subtitleContainer)}>
-								{ subtitleComponent }
-							</div>
-						</div>
-					</div>
-					<div className={classNames(styles.dividerContainer)}>
-						{ dividerComponent }
-					</div>
-				</div>
-			)
-		}
-
-		switch (layoutAlignment) {
-		case 'left':
-			return _leftAlignedLayout()
-		case 'right':
-		case 'center':
-		case 'justify':
-		}
-	}
-
+	/**
+	 * Build the Title Element merging the Element Component properties with the Molecule properties
+	 * @param       {React$Component<*>} element The title component
+	 * @param       {Object} parentProps Sanitized parent properties
+	 * @return      {Object} Containing the title element with merged properties
+	 */
 	function _getTitleElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
@@ -177,6 +147,12 @@ function Header (props: PropTypes) {
 		)
 	}
 
+	/**
+	 * Build the Subtitle Element merging the Element Component properties with the Molecule properties
+	 * @param       {React$Component<*>} element The Subtitle component
+	 * @param       {Object} parentProps Sanitized parent properties
+	 * @return      {Object} Containing the Subtitle element with merged properties
+	 */
 	function _getSubtitleComponent (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
@@ -186,10 +162,14 @@ function Header (props: PropTypes) {
 		)
 	}
 
+	/**
+	 * Build the Glyph Element merging the Element Component properties with the Molecule properties
+	 * @param       {React$Component<*>} element The Glyph component
+	 * @param       {Object} parentProps Sanitized parent properties
+	 * @return      {Object} Containing the Glyph element with merged properties
+	 */
 	function _getGlyphElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
-		console.info('parent', parentProps)
-		console.info('element', element.props)
 		return (
 			<Glyph { ...mergedProps } key='glyphElement'>
 				{ element.props.children }
@@ -197,6 +177,12 @@ function Header (props: PropTypes) {
 		)
 	}
 
+	/**
+	 * Build the Divider Element merging the Element Component properties with the Molecule properties
+	 * @param       {React$Component<*>} element The Divider component
+	 * @param       {Object} parentProps Sanitized parent properties
+	 * @return      {Object} Containing the Divider element with merged properties
+	 */
 	function _getDividerElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
@@ -204,6 +190,111 @@ function Header (props: PropTypes) {
 				{ element.props.children }
 			</Divider>
 		)
+	}
+
+	/**
+	 * [_populateLayout description]
+	 * @param       {ComponentAlignment} alignment Alignment of the Molecule
+	 * @param       {ComponentSize} size Size of the Molecule
+	 * @param       {Object | null} titleComponent The Title component
+	 * @param       {Object | null} subtitleComponent The Subtitle component
+	 * @param       {Object | null} glyphComponent The Glyph component
+	 * @param       {Object | null} dividerComponent The Divider component
+	 * @return      {Object} The molecule with the selected properties
+	 */
+	function _populateLayout (alignment: ComponentAlignment, size: ComponentSize, titleComponent: Object, subtitleComponent: Object | null, glyphComponent: Object | null, dividerComponent: Object | null): Object {
+		let subtitleContainer: Object | null = null
+		let glyphContainer: Object | null = null
+		let dividerContainer: Object | null = null
+
+
+		const titleContainer = (
+			<div className={classNames(styles.titleContainer)}>
+				{ titleComponent }
+			</div>
+		)
+
+		if (subtitleComponent) {
+			subtitleContainer = (
+				<div className={classNames(styles.subtitleContainer)}>
+					{ subtitleComponent }
+				</div>
+			)
+		}
+
+		if (glyphComponent) {
+			glyphContainer = (
+				<div className={classNames(styles.glyphContainer)}>
+					{ glyphComponent }
+				</div>
+			)
+		}
+
+		if (dividerComponent) {
+			dividerContainer = (
+				<div className={classNames(styles.dividerContainer)}>
+					{ dividerComponent }
+				</div>
+			)
+		}
+
+		const _leftAlignedLayout: Function = function (): Object {
+			return (
+				<div>
+					<div className={classNames(styles.leftFlexWrapper)}>
+						{ glyphContainer }
+						<div className={classNames(styles.contentContainer, styles[size])}>
+							{ titleContainer }
+							{ subtitleContainer }
+						</div>
+					</div>
+					{ dividerContainer }
+				</div>
+			)
+		}
+
+		const _rightAlignedLayout: Function = function (): Object {
+			return (
+				<div>
+					<div className={classNames(styles.rightFlexWrapper)}>
+						<div className={classNames(styles.contentContainer, styles[size])}>
+							{ titleContainer }
+							{ subtitleContainer }
+						</div>
+						{ glyphContainer }
+					</div>
+					{ dividerContainer }
+				</div>
+			)
+		}
+
+		const _centerAlignedLayout: Function = function (): Object {
+			return (
+				<div>
+					<div className={classNames(styles.centerFlexWrapper)}>
+						{ glyphContainer }
+						<div className={classNames(styles.contentContainer, styles[size])}>
+							{ titleContainer }
+							{ subtitleContainer }
+						</div>
+						{ dividerContainer }
+					</div>
+				</div>
+			)
+		}
+
+		switch (alignment) {
+		case 'left':
+			return _leftAlignedLayout()
+		case 'right':
+			return _rightAlignedLayout()
+		case 'center':
+			return _centerAlignedLayout()
+		case 'justify':
+			return _centerAlignedLayout()
+		default:
+			return _leftAlignedLayout()
+		}
 	}
 
 	const renderElement: any = _getRenderElement(props)
