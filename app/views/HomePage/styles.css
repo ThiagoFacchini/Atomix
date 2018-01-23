@@ -19,3 +19,27 @@
 .customDivider {
 	border-color: red !important;
 }
+
+.customGlyph {
+	color: red !important;
+}
+
+.customLabel {
+	color: red !important;
+}
+
+
+.customSubtitle {
+	color: red !important;
+}
+
+.customTitle {
+	color: red !important;
+}
+
+.customHeader {
+	&.enabled {
+		margin-top: 100px !important;
+		color: blue !important;
+	}
+}

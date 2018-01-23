@@ -1,13 +1,12 @@
 @import '../../styles/themesManager.css';
 
-.glyph {
+.glyphContainer {
 	display: block;
 	position: relative;
 	width: 100%;
 	overflow: hidden;
 
-	& .content {
-		/* line-height: initial; */
+	& .glyph {
 
 		/* ALIGNMENT */
 		&.left {

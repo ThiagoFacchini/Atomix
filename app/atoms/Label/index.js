@@ -60,6 +60,7 @@ type PropTypes = {
 	children: ?any,
 	theme: ?string,
 	device: ?string,
+	class?: Object,
 	size?: ComponentSize,
 	isSelectable?: boolean,
 	status?: ComponentStatus,
@@ -122,7 +123,8 @@ function Label (props: PropTypes) {
 				styles[_getComponentStatus(props.status)],
 				styles[_getComponentAlignment(props.alignment)],
 				styles[_isComponentSelectable(props.isSelectable)],
-				styles[_getComponentCapitalization(props.capitalization)]
+				styles[_getComponentCapitalization(props.capitalization)],
+				_getUserCustomClass(props.class)
 			)}>
 				{ props.children }
 			</div>
@@ -229,6 +231,18 @@ function Label (props: PropTypes) {
 		} else {
 			return DEFAULT_ANIMATION_DURATION
 		}
+	}
+
+	/**
+	 * Define if a user-custom css class will override defaults
+	 * @param       {Object} userCustomClass User custom CSS class
+	 * @return      {Object | null} The user-custom css class
+	 */
+	function _getUserCustomClass (userCustomClass: Object | null): Object | null {
+		if (userCustomClass) {
+			return userCustomClass
+		}
+		return null
 	}
 
 	const renderElement: Object | null = _getRenderElement(props)

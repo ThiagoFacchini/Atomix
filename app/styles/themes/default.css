@@ -188,7 +188,7 @@
 }
 
 /* ATOM: GLYPH */
-.default.glyph {
+.default.glyphContainer {
 	&.computer {
 		& .enabled {
 			color: var(--computer-default-glyph-color-enabled);

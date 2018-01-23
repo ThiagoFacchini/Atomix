@@ -170,6 +170,7 @@ function Header (props: PropTypes) {
 	 */
 	function _getGlyphElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
+		console.info('divider glyph from header is ', mergedProps)
 		return (
 			<Glyph { ...mergedProps }>
 				{ element.props.children }

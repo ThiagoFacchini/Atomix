@@ -99,7 +99,7 @@ function Divider (props: PropTypes) {
 				</Animator>
 			)
 		} else {
-			return _getDividerComponent(props)
+			return _getDividerComponent(props.class)
 		}
 	}
 
@@ -143,7 +143,7 @@ function Divider (props: PropTypes) {
 				styles.content,
 				styles[_getComponentSize(props.size)],
 				styles[_getComponentStatus(props.status)],
-				_getClass(props)
+				_getUserCustomClass(props.class)
 			)} />
 		)
 	}
@@ -176,9 +176,14 @@ function Divider (props: PropTypes) {
 		}
 	}
 
-	function _getClass (props: Object): Object | null {
-		if (props.class) {
-			return props.class
+	/**
+	 * Define if a user-custom css class will override defaults
+	 * @param       {Object} userCustomClass User custom CSS class
+	 * @return      {Object | null} The user-custom css class
+	 */
+	function _getUserCustomClass (userCustomClass: Object | null): Object | null {
+		if (userCustomClass) {
+			return userCustomClass
 		}
 		return null
 	}

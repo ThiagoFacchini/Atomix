@@ -58,6 +58,7 @@ type PropTypes = {
 	children: ?any,
 	theme: ?string,
 	device: ?string,
+	class?: Object,
 	size?: ComponentSize,
 	isSelectable?: boolean,
 	status?: ComponentStatus,
@@ -150,6 +151,7 @@ function Title (props: PropTypes) {
 				styles[_getComponentStatus(props.status)],
 				styles[_getComponentAlignment(props.alignment)],
 				styles[_isComponentSelectable(props.isSelectable)],
+				_getUserCustomClass(props.class),
 			)}>
 				{ props.children }
 			</div>
@@ -217,6 +219,18 @@ function Title (props: PropTypes) {
 		} else {
 			return DEFAULT_COMPONENT_IS_NOT_SELECTABLE_CLASS
 		}
+	}
+
+	/**
+	 * Define if a user-custom css class will override defaults
+	 * @param       {Object} userCustomClass User custom CSS class
+	 * @return      {Object | null} The user-custom css class
+	 */
+	function _getUserCustomClass (userCustomClass: Object | null): Object | null {
+		if (userCustomClass) {
+			return userCustomClass
+		}
+		return null
 	}
 
 	const renderElement: Object | null = _getRenderElement(props)

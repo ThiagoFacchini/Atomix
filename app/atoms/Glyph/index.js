@@ -55,6 +55,7 @@ export type GlyphFamily = 'fontawesome' | 'ionicons' | 'justvectorsocial'
 type PropTypes = {
 	theme: ?string,
 	device: ?string,
+	class?: Object,
 	family: GlyphFamily,
 	name: string,
 	size?: ComponentSize,
@@ -137,11 +138,12 @@ function Glyph (props: PropTypes) {
 	function _getGlyphComponent (props: Object): Object {
 		return (
 			<div className={classNames(
-				styles.content,
+				styles.glyph,
 				styles[_getComponentSize(props.size)],
 				styles[_getComponentStatus(props.status)],
 				styles[_getComponentAlignment(props.alignment)],
-				_getGlyphClass(props.family, props.name)
+				_getGlyphClass(props.family, props.name),
+				_getUserCustomClass(props.class)
 			)}>
 			</div>
 		)
@@ -209,14 +211,27 @@ function Glyph (props: PropTypes) {
 		}
 	}
 
+	/**
+	 * Define if a user-custom css class will override defaults
+	 * @param       {Object} userCustomClass User custom CSS class
+	 * @return      {Object | null} The user-custom css class
+	 */
+	function _getUserCustomClass (userCustomClass: Object | null): Object | null {
+		if (userCustomClass) {
+			return userCustomClass
+		}
+		return null
+	}
+
 	const renderElement: Object | null = _getRenderElement(props)
 	// --------------------------------------------------------
 
 	// --------------------------------------------------------
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
+	console.info('Glyph props are', props)
 	return (
-		<div className={classNames(styles.glyph, styles[props.theme], styles[props.device])}>
+		<div className={classNames(styles.glyphContainer, styles[props.theme], styles[props.device])}>
 			{renderElement}
 		</div>
 	)

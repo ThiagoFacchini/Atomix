@@ -148,6 +148,7 @@ export class HomePage extends React.Component<PropTypes> {
 								animationType="attention_seekers"
 								animationName="bounce"
 								animationBehaviour="animateOnce"
+								class={styles.customTitle}
 							>
 								Button
 							</Title>
@@ -160,6 +161,7 @@ export class HomePage extends React.Component<PropTypes> {
 								animationType="fading_entrances"
 								animationName="fadeInLeft"
 								animationBehaviour="animateOnce"
+								class={styles.customSubtitle}
 							>
 								Buttons should be used
 							</Subtitle>
@@ -167,14 +169,12 @@ export class HomePage extends React.Component<PropTypes> {
 								theme={this.props.themeManager.theme.get()}
 								device={this.props.themeManager.device.get()}
 								size='xs'
-								paddingLeft={0}
-								paddingRight={0}
-								paddingBottom={10}
 								animationType="sliding_entrances"
 								animationName="slideInLeft"
 								animationBehaviour="animateOnce"
 								animationDuration="verylong"
 								status="warning"
+								class={styles.customDivider}
 							/>
 						</div>
 					</FlexCol>
@@ -191,6 +191,7 @@ export class HomePage extends React.Component<PropTypes> {
 						animationName="bounceIn"
 						animationBehaviour="animateOnce"
 						animationDuration="short"
+						class={styles.customHeader}
 					>
 						<Title>
 							Homepage
@@ -209,7 +210,6 @@ export class HomePage extends React.Component<PropTypes> {
 							animationDuration="verylong"
 							paddingLeft={0}
 							size='xs'
-							class={styles.customDivider}
 						/>
 					</Header>
 
@@ -231,6 +231,7 @@ export class HomePage extends React.Component<PropTypes> {
 								animationDuration="veryshort"
 								status="enabled"
 								capitalization="uppercase"
+								class={styles.customLabel}
 							>
 								Testing label
 							</Label>
