@@ -5,7 +5,12 @@
 
 /* Variables goes inside root, classes definition inside .default */
 :root {
-	--computer-default-font-family: RobotoLight;
+	--computer-default-font: Roboto;
+	--computer-default-font-thin: RobotoThin;
+	--computer-default-font-light: RobotoLight;
+	--computer-default-font-medium: RobotoMedium;
+	--computer-default-font-bold: RobotoBold;
+	--computer-default-font-black: RobotoBlack;
 	--computer-default-font-size-xs-1: 35px;
 	--computer-default-font-size-xs-2: 16px;
 	--computer-default-font-size-xs-3: 12px;
@@ -53,14 +58,20 @@
 	--computer-default-glyph-color-warning: var(--computer-default-text-color-6);
 	--computer-default-glyph-color-error: var(--computer-default-text-color-7);
 
-	--computer-default-divider-color-enabled: var(--computer-default-text-color-2);
-	--computer-default-divider-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-divider-color-enabled: var(--computer-default-text-color-4);
+	--computer-default-divider-color-disabled: var(--computer-default-text-color-4);
 	--computer-default-divider-color-success: var(--computer-default-text-color-5);
 	--computer-default-divider-color-warning: var(--computer-default-text-color-6);
 	--computer-default-divider-color-error: var(--computer-default-text-color-7);
 
 	--computer-default-border-color-divider: var(--computer-default-text-color-3);
 	--computer-default-border-color-divider-disabled: var(--computer-default-text-color-4);
+
+	--computer-default-label-color-enabled: var(--computer-default-text-color-1);
+	--computer-default-label-color-disabled: var(--computer-default-text-color-3);
+	--computer-default-label-color-success: var(--computer-default-text-color-5);
+	--computer-default-label-color-warning: var(--computer-default-text-color-6);
+	--computer-default-label-color-error: var(--computer-default-text-color-7);
 }
 
 /* DEVICE: COMPUTER */
@@ -80,6 +91,8 @@
 /* ATOM: TITLE */
 .default.title {
 	&.computer {
+		font-family: var(--computer-default-font-bold);
+
 		& .enabled {
 			color: var(--computer-default-title-color-enabled);
 		}
@@ -130,6 +143,8 @@
 /* ATOM: SUBTITLE */
 .default.subtitle {
 	&.computer {
+		font-family: var(--computer-default-font);
+
 		& .enabled {
 			color: var(--computer-default-subtitle-color-enabled);
 		}
@@ -265,6 +280,53 @@
 		& .xl {
 			border-width: 0;
 			border-top-width: 5px;
+		}
+	}
+}
+
+/* ATOM: LABEL */
+.default.label {
+	&.computer {
+		font-family: var(--computer-default-font-medium);
+
+		& .enabled {
+			color: var(--computer-default-label-color-enabled);
+		}
+
+		& .disabled {
+			color: var(--computer-default-label-color-disabled);
+		}
+
+		& .success {
+			color: var(--computer-default-label-color-success);
+		}
+
+		& .warning {
+			color: var(--computer-default-label-color-warning);
+		}
+
+		& .error {
+			color: var(--computer-default-label-color-error);
+		}
+
+		& .xs {
+			font-size: var(--computer-default-font-size-xs-3);
+		}
+
+		& .sm {
+			font-size: var(--computer-default-font-size-sm-3);
+		}
+
+		& .md {
+			font-size: var(--computer-default-font-size-md-3);
+		}
+
+		& .lg {
+			font-size: var(--computer-default-font-size-lg-3);
+		}
+
+		& .xl {
+			font-size: var(--computer-default-font-size-xl-3);
 		}
 	}
 }

@@ -51,19 +51,12 @@ import styles from './styles.css'
 export type DividerTypes = 'solid' | 'dotted' | 'dashed'| 'ridge'
 
 const DEFAULT_TYPE: DividerTypes = 'solid'
-const DEFAULT_PADDING_TOP: number = 5
-const DEFAULT_PADDING_BOTTOM: number = 5
-const DEFAULT_PADDING_LEFT: number = 5
-const DEFAULT_PADDING_RIGHT: number = 5
 
 type PropTypes = {
 	theme: ?string,
 	device: ?string,
+	class?: Object,
 	type: ?DividerTypes,
-	paddingTop?: number,
-	paddingBottom?: number,
-	paddingLeft?: number,
-	paddingRight?: number,
 	size?: ComponentSize,
 	animationType?: AnimationType,
 	animationName?: string,
@@ -150,6 +143,7 @@ function Divider (props: PropTypes) {
 				styles.content,
 				styles[_getComponentSize(props.size)],
 				styles[_getComponentStatus(props.status)],
+				_getClass(props)
 			)} />
 		)
 	}
@@ -182,46 +176,11 @@ function Divider (props: PropTypes) {
 		}
 	}
 
-	/**
-	 * Create the custom style object
-	 * @param       {Object} props Component properties
-	 * @return      {Object} Custom style object
-	 */
-	function _getCustomStyles (props: Object): Object {
-		let paddingTop: number, paddingBottom: number, paddingLeft: number, paddingRight: number
-
-		if (props.paddingTop) {
-			paddingTop = props.paddingTop
-		} else {
-			paddingTop = DEFAULT_PADDING_TOP
+	function _getClass (props: Object): Object | null {
+		if (props.class) {
+			return props.class
 		}
-
-		if (props.paddingBottom) {
-			paddingBottom = props.paddingBottom
-		} else {
-			paddingBottom = DEFAULT_PADDING_BOTTOM
-		}
-
-		if (props.paddingLeft) {
-			paddingLeft = props.paddingLeft
-		} else {
-			paddingLeft = DEFAULT_PADDING_LEFT
-		}
-
-		if (props.paddingRight) {
-			paddingRight = props.paddingRight
-		} else {
-			paddingRight = DEFAULT_PADDING_RIGHT
-		}
-
-		const customStyle = {
-			paddingTop: paddingTop,
-			paddingBottom: paddingBottom,
-			paddingLeft: paddingLeft,
-			paddingRight: paddingRight
-		}
-
-		return customStyle
+		return null
 	}
 
 	const renderElement: Object | null = _getRenderElement(props)
@@ -231,7 +190,7 @@ function Divider (props: PropTypes) {
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
 	return (
-		<div style={_getCustomStyles(props)} className={classNames(styles.divider, styles[props.theme], styles[props.device])}>
+		<div className={classNames(styles.divider, styles[props.theme], styles[props.device])}>
 			{renderElement}
 		</div>
 	)

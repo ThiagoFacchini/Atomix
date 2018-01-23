@@ -141,7 +141,7 @@ function Header (props: PropTypes) {
 	function _getTitleElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
-			<Title { ...mergedProps } key='titleElement'>
+			<Title { ...mergedProps }>
 				{ element.props.children }
 			</Title>
 		)
@@ -156,7 +156,7 @@ function Header (props: PropTypes) {
 	function _getSubtitleComponent (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
-			<Subtitle { ...mergedProps } key='subTitleElement'>
+			<Subtitle { ...mergedProps }>
 				{ element.props.children }
 			</Subtitle>
 		)
@@ -171,7 +171,7 @@ function Header (props: PropTypes) {
 	function _getGlyphElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
-			<Glyph { ...mergedProps } key='glyphElement'>
+			<Glyph { ...mergedProps }>
 				{ element.props.children }
 			</Glyph>
 		)
@@ -186,7 +186,7 @@ function Header (props: PropTypes) {
 	function _getDividerElement (element: React$Component<*>, parentProps: Object): Object {
 		const mergedProps = { ...parentProps, ...element.props }
 		return (
-			<Divider { ...mergedProps } key='dividerElement'>
+			<Divider { ...mergedProps }>
 				{ element.props.children }
 			</Divider>
 		)

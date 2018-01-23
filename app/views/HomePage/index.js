@@ -29,6 +29,7 @@ import Glyph from './../../atoms/Glyph'
 import Title from './../../atoms/Title'
 import Subtitle from './../../atoms/Subtitle'
 import Divider from './../../atoms/Divider'
+import Label from './../../atoms/Label'
 import Header from './../../molecules/Header'
 
 
@@ -208,6 +209,7 @@ export class HomePage extends React.Component<PropTypes> {
 							animationDuration="verylong"
 							paddingLeft={0}
 							size='xs'
+							class={styles.customDivider}
 						/>
 					</Header>
 
@@ -216,23 +218,24 @@ export class HomePage extends React.Component<PropTypes> {
 					<br/>
 					<br/>
 
-					<Glyph
-						family="ionicons"
-						name="ios-flower-outline"
-						size="xl"
-						alignment="center"
-						animationType="attention_seekers"
-						animationName="bounce"
-						animationBehaviour="animateOnce"
-						status="disabled"
-					/>
-					<Animator
-						type="attention_seekers"
-						name="bounce"
-						behaviour="animateOnce"
-					>
-						Simple test
-					</Animator>
+					<FlexCol xs="3" sm="3" md="3" lg="3" xl="3">
+						<div>
+							<Label
+								theme={this.props.themeManager.theme.get()}
+								device={this.props.themeManager.device.get()}
+								alignment='center'
+								isSelectable={false}
+								animationType="sliding_entrances"
+								animationName="slideInLeft"
+								animationBehaviour="animateOnce"
+								animationDuration="veryshort"
+								status="enabled"
+								capitalization="uppercase"
+							>
+								Testing label
+							</Label>
+						</div>
+					</FlexCol>
 				</FlexRow>
       </div>
 		)
