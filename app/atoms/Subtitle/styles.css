@@ -1,12 +1,12 @@
 @import '../../styles/themesManager.css';
 
-.subtitle {
+.subtitleContainer {
 	display: block;
 	position: relative;
 	width: 100%;
 	overflow: hidden;
 
-	& .content {
+	& .subtitle {
 		/* USER SELECTABLE */
 		&.unselectable {
 			user-select: none;

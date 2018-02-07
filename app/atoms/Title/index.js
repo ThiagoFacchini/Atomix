@@ -54,7 +54,7 @@ import styles from './styles.css'
 // --------------------------------------------------------
 // ATOM PROPERTIES DEFINITION
 // --------------------------------------------------------
-type PropTypes = {
+export type PropTypes = {
 	children: ?any,
 	theme: ?string,
 	device: ?string,
@@ -146,7 +146,7 @@ function Title (props: PropTypes) {
 	function _getTitleComponent (props: Object): Object {
 		return (
 			<div className={classNames(
-				styles.content,
+				styles.title,
 				styles[_getComponentSize(props.size)],
 				styles[_getComponentStatus(props.status)],
 				styles[_getComponentAlignment(props.alignment)],
@@ -240,7 +240,7 @@ function Title (props: PropTypes) {
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
 	return (
-		<div className={classNames(styles.title, styles[props.theme], styles[props.device])}>
+		<div className={classNames(styles.titleContainer, styles[props.theme], styles[props.device])}>
 			{renderElement}
 		</div>
 	)

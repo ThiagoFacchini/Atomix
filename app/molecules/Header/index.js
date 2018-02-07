@@ -38,6 +38,24 @@ import type {
 	ComponentStatus
 } from '../../neutrons/Types'
 
+import type {
+	PropTypes as TitleType
+} from '../../atoms/Title'
+
+import type {
+	PropTypes as SubtitleType
+} from '../../atoms/Subtitle'
+
+import type {
+	GlyphFamily,
+	PropTypes as GlyphType
+} from '../../atoms/Glyph'
+
+import type {
+	PropTypes as DividerType,
+	DividerTypes as DividerStyles
+} from '../../atoms/Divider'
+
 import {
 	DEFAULT_THEME,
 	DEFAULT_DEVICE,
@@ -56,18 +74,25 @@ import styles from './styles.css'
 // --------------------------------------------------------
 // MOLECULE PROPERTY DEFINITIONS
 // --------------------------------------------------------
+const DEFAULT_HEADER_DIVIDER: boolean = true
+
 type PropTypes = {
-	children: ?any,
-	theme: ?string,
-	device: ?string,
+	theme?: string,
+	device?: string,
+	class?: Object,
 	size?: ComponentSize,
 	isSelectable?: boolean,
 	status?: ComponentStatus,
 	alignment?: ComponentAlignment,
-	animationType?: AnimationType,
-	animationName?: string,
-	animationBehaviour?: AnimationBehaviour,
-	animationDuration?: AnimationDuration
+	animationType?: Array<AnimationType> | AnimationType,
+	animationName?: Array<string> | string,
+	animationBehaviour?: Array<AnimationBehaviour> | AnimationBehaviour,
+	animationDuration?: Array<AnimationDuration> | AnimationDuration,
+	headerTitle: string,
+	headerSubtitle?: string,
+	glyphFamily?: GlyphFamily,
+	glyphName?: string,
+	headerDivider?: boolean,
 }
 // --------------------------------------------------------
 
@@ -75,10 +100,12 @@ type PropTypes = {
 // DEFINES MOLECULE DEFAULT PROPERTIES
 // --------------------------------------------------------
 const _defaultProps = {
-	children: null,
 	theme: DEFAULT_THEME,
 	device: DEFAULT_DEVICE,
+	headerDivider: DEFAULT_HEADER_DIVIDER
 }
+
+const DEFAULT_DIVIDER_STYLE: DividerStyles = 'solid'
 // --------------------------------------------------------
 
 function Header (props: PropTypes) {
@@ -97,26 +124,13 @@ function Header (props: PropTypes) {
 		let glyphComponent: Object | null = null
 		let dividerComponent: Object | null = null
 
-		props.children.map((child, index) => {
-			const filteredProps = _.omit(props, ['children'])
-			switch (child.type) {
-			case Title:
-				titleComponent = _getTitleElement(child, filteredProps)
-				break
-			case Subtitle:
-				subtitleComponent = _getSubtitleComponent(child, filteredProps)
-				break
-			case Glyph:
-				glyphComponent = _getGlyphElement(child, filteredProps)
-				break
-			case Divider:
-				dividerComponent = _getDividerElement(child, filteredProps)
-				break
-			default:
-				// @TODO Hook it into the console tool
-				break
-			}
-		})
+		const filteredProps = _.omit(props, ['children'])
+
+		titleComponent = _getTitleElement(filteredProps)
+
+		if (filteredProps.headerSubtitle) subtitleComponent = _getSubtitleComponent(filteredProps)
+		if (filteredProps.glyphFamily && filteredProps.glyphName) glyphComponent = _getGlyphElement(filteredProps)
+		if (filteredProps.headerDivider) dividerComponent = _getDividerElement(filteredProps)
 
 		let componentAlignment: ComponentAlignment = DEFAULT_COMPONENT_ALIGNMENT
 		if (props.alignment) componentAlignment = props.alignment
@@ -124,25 +138,85 @@ function Header (props: PropTypes) {
 		let componentSize: ComponentSize = DEFAULT_COMPONENT_SIZE
 		if (props.size) componentSize = props.size
 
-		if (!titleComponent) {
-			// @TODO Hook it into the console tool
-			return null
-		}
-
 		return _populateLayout(componentAlignment, componentSize, titleComponent, subtitleComponent, glyphComponent, dividerComponent)
 	}
 
 	/**
 	 * Build the Title Element merging the Element Component properties with the Molecule properties
 	 * @param       {React$Component<*>} element The title component
-	 * @param       {Object} parentProps Sanitized parent properties
+	 * @param       {Object} props Sanitized parent properties
 	 * @return      {Object} Containing the title element with merged properties
 	 */
-	function _getTitleElement (element: React$Component<*>, parentProps: Object): Object {
-		const mergedProps = { ...parentProps, ...element.props }
+	function _getTitleElement (props: Object): Object {
+		const titleProps: TitleType = {
+			children: undefined,
+			theme: props.theme,
+			device: props.device,
+			class: undefined,
+			size: undefined,
+			isSelectable: undefined,
+			status: undefined,
+			alignment: undefined,
+			animationType: undefined,
+			animationName: undefined,
+			animationBehaviour: undefined,
+			animationDuration: undefined
+		}
+
+		// Append a possible class property to the title element
+		if (props.class) titleProps.class = props.class
+
+		// Append a possible size property to the title element
+		if (props.size) titleProps.size = props.size
+
+		// Append a possible isSelectable property to the title element
+		if (props.isSelectable) titleProps.isSelectable = props.isSelectable
+
+		// Append a possible status property to the title element
+		if (props.status) titleProps.status = props.status
+
+		// Append a possible alignment property to the title element
+		if (props.alignment) titleProps.alignment = props.alignment
+
+		// Append a possible animationType property to the title element
+		if (props.animationType) {
+			if (_.isArray(props.animationType)) {
+				titleProps.animationType = props.animationType[0]
+			} else {
+				titleProps.animationType = props.animationType
+			}
+		}
+
+		// Append a possible animationName property to the title element
+		if (props.animationName) {
+			if (_.isArray(props.animationName)) {
+				titleProps.animationName = props.animationName[0]
+			} else {
+				titleProps.animationName = props.animationName
+			}
+		}
+
+		// Append a possible animationBehaviour property to the title element
+		if (props.animationBehaviour) {
+			if (_.isArray(props.animationBehaviour)) {
+				titleProps.animationBehaviour = props.animationBehaviour[0]
+			} else {
+				titleProps.animationBehaviour = props.animationBehaviour
+			}
+		}
+
+		// Append a possible animationDuration property to the title element
+		if (props.animationDuration) {
+			if (_.isArray(props.animationDuration)) {
+				titleProps.animationDuration = props.animationDuration[0]
+			} else {
+				titleProps.animationDuration = props.animationDuration
+			}
+		}
+
 		return (
-			<Title { ...mergedProps }>
-				{ element.props.children }
+			<Title { ...titleProps }>
+				{ props.headerTitle }
 			</Title>
 		)
 	}
@@ -150,14 +224,95 @@ function Header (props: PropTypes) {
 	/**
 	 * Build the Subtitle Element merging the Element Component properties with the Molecule properties
 	 * @param       {React$Component<*>} element The Subtitle component
-	 * @param       {Object} parentProps Sanitized parent properties
+	 * @param       {Object} props Sanitized parent properties
 	 * @return      {Object} Containing the Subtitle element with merged properties
 	 */
-	function _getSubtitleComponent (element: React$Component<*>, parentProps: Object): Object {
-		const mergedProps = { ...parentProps, ...element.props }
+	function _getSubtitleComponent (props: Object): Object {
+		const subtitleProps: SubtitleType = {
+			children: undefined,
+			theme: props.theme,
+			device: props.device,
+			class: undefined,
+			size: undefined,
+			isSelectable: undefined,
+			status: undefined,
+			alignment: undefined,
+			animationType: undefined,
+			animationName: undefined,
+			animationBehaviour: undefined,
+			animationDuration: undefined
+		}
+
+		// Append a possible class property to the subtitle element
+		if (props.class) subtitleProps.class = props.class
+
+		// Append a possible size property to the subtitle element
+		if (props.size) subtitleProps.size = props.size
+
+		// Append a possible isSelectable property to the subtitle element
+		if (props.isSelectable) subtitleProps.isSelectable = props.isSelectable
+
+		// Append a possible status property to the subtitle element
+		if (props.status) subtitleProps.status = props.status
+
+		// Append a possible alignment property to the subtitle element
+		if (props.alignment) subtitleProps.alignment = props.alignment
+
+		// Append a possible animationType property to the subtitle element
+		if (props.animationType) {
+			if (_.isArray(props.animationType)) {
+				if (props.animationType.length >= 2) {
+					subtitleProps.animationType = props.animationType[1]
+				} else {
+					subtitleProps.animationType = props.animationType[0]
+				}
+			} else {
+				subtitleProps.animationType = props.animationType
+			}
+		}
+
+		// Append a possible animationName property to the subtitle element
+		if (props.animationName) {
+			if (_.isArray(props.animationName)) {
+				if (props.animationName.length >= 2) {
+					subtitleProps.animationName = props.animationName[1]
+				} else {
+					subtitleProps.animationName = props.animationName[0]
+				}
+			} else {
+				subtitleProps.animationName = props.animationName
+			}
+		}
+
+		// Append a possible animationBehaviour property to the subtitle element
+		if (props.animationBehaviour) {
+			if (_.isArray(props.animationBehaviour)) {
+				if (props.animationBehaviour.length >= 2) {
+					subtitleProps.animationBehaviour = props.animationBehaviour[1]
+				} else {
+					subtitleProps.animationBehaviour = props.animationBehaviour[0]
+				}
+			} else {
+				subtitleProps.animationBehaviour = props.animationBehaviour
+			}
+		}
+
+		// Append a possible animationDuration property to the subtitle element
+		if (props.animationDuration) {
+			if (_.isArray(props.animationDuration)) {
+				if (props.animationDuration.length >= 2) {
+					subtitleProps.animationDuration = props.animationDuration[1]
+				} else {
+					subtitleProps.animationDuration = props.animationDuration[0]
+				}
+			} else {
+				subtitleProps.animationDuration = props.animationDuration
+			}
+		}
+
 		return (
-			<Subtitle { ...mergedProps }>
-				{ element.props.children }
+			<Subtitle { ...subtitleProps }>
+				{ props.headerSubtitle }
 			</Subtitle>
 		)
 	}
@@ -165,31 +320,177 @@ function Header (props: PropTypes) {
 	/**
 	 * Build the Glyph Element merging the Element Component properties with the Molecule properties
 	 * @param       {React$Component<*>} element The Glyph component
-	 * @param       {Object} parentProps Sanitized parent properties
+	 * @param       {Object} props Sanitized parent properties
 	 * @return      {Object} Containing the Glyph element with merged properties
 	 */
-	function _getGlyphElement (element: React$Component<*>, parentProps: Object): Object {
-		const mergedProps = { ...parentProps, ...element.props }
-		console.info('divider glyph from header is ', mergedProps)
+	function _getGlyphElement (props: Object): Object {
+		const glyphProps: GlyphType = {
+			theme: props.theme,
+			device: props.device,
+			class: undefined,
+			family: props.glyphFamily,
+			name: props.glyphName,
+			size: undefined,
+			status: undefined,
+			alignment: undefined,
+			animationType: undefined,
+			animationName: undefined,
+			animationBehaviour: undefined,
+			animationDuration: undefined
+		}
+
+		// Append a possible class property to the glyph element
+		if (props.class) glyphProps.class = props.class
+
+		// Append a possible size property to the glyph element
+		if (props.size) glyphProps.size = props.size
+
+		// Append a possible status property to the glyph element
+		if (props.status) glyphProps.status = props.status
+
+		// Append a possible alignment property to the glyph element
+		if (props.alignment) glyphProps.alignment = props.alignment
+
+		// Append a possible animationType property to the glyph element
+		if (props.animationType) {
+			if (_.isArray(props.animationType)) {
+				if (props.animationType.length >= 2) {
+					glyphProps.animationType = props.animationType[1]
+				} else {
+					glyphProps.animationType = props.animationType[0]
+				}
+			} else {
+				glyphProps.animationType = props.animationType
+			}
+		}
+
+		// Append a possible animationName property to the glyph element
+		if (props.animationName) {
+			if (_.isArray(props.animationName)) {
+				if (props.animationName.length >= 2) {
+					glyphProps.animationName = props.animationName[1]
+				} else {
+					glyphProps.animationName = props.animationName[0]
+				}
+			} else {
+				glyphProps.animationName = props.animationName
+			}
+		}
+
+		// Append a possible animationBehaviour property to the glyph element
+		if (props.animationBehaviour) {
+			if (_.isArray(props.animationBehaviour)) {
+				if (props.animationBehaviour.length >= 2) {
+					glyphProps.animationBehaviour = props.animationBehaviour[1]
+				} else {
+					glyphProps.animationBehaviour = props.animationBehaviour[0]
+				}
+			} else {
+				glyphProps.animationBehaviour = props.animationBehaviour
+			}
+		}
+
+		// Append a possible animationDuration property to the glyph element
+		if (props.animationDuration) {
+			if (_.isArray(props.animationDuration)) {
+				if (props.animationDuration.length >= 2) {
+					glyphProps.animationDuration = props.animationDuration[1]
+				} else {
+					glyphProps.animationDuration = props.animationDuration[0]
+				}
+			} else {
+				glyphProps.animationDuration = props.animationDuration
+			}
+		}
+
 		return (
-			<Glyph { ...mergedProps }>
-				{ element.props.children }
-			</Glyph>
+			<Glyph { ...glyphProps } />
 		)
 	}
 
 	/**
 	 * Build the Divider Element merging the Element Component properties with the Molecule properties
 	 * @param       {React$Component<*>} element The Divider component
-	 * @param       {Object} parentProps Sanitized parent properties
+	 * @param       {Object} props Sanitized parent properties
 	 * @return      {Object} Containing the Divider element with merged properties
 	 */
-	function _getDividerElement (element: React$Component<*>, parentProps: Object): Object {
-		const mergedProps = { ...parentProps, ...element.props }
+	function _getDividerElement (props: Object): Object {
+		const dividerProps: DividerType = {
+			theme: props.theme,
+			device: props.device,
+			class: undefined,
+			type: DEFAULT_DIVIDER_STYLE,
+			size: undefined,
+			status: undefined,
+			animationType: undefined,
+			animationName: undefined,
+			animationBehaviour: undefined,
+			animationDuration: undefined
+		}
+
+		// Append a possible class property to the subtitle element
+		if (props.class) dividerProps.class = props.class
+
+		// Append a possible size property to the subtitle element
+		if (props.size) dividerProps.size = props.size
+
+		// Append a possible status property to the subtitle element
+		if (props.status) dividerProps.status = props.status
+
+		// Append a possible animationType property to the subtitle element
+		if (props.animationType) {
+			if (_.isArray(props.animationType)) {
+				if (props.animationType.length >= 4) {
+					dividerProps.animationType = props.animationType[3]
+				} else {
+					dividerProps.animationType = props.animationType[0]
+				}
+			} else {
+				dividerProps.animationType = props.animationType
+			}
+		}
+
+		// Append a possible animationName property to the subtitle element
+		if (props.animationName) {
+			if (_.isArray(props.animationName)) {
+				if (props.animationName.length >= 4) {
+					dividerProps.animationName = props.animationName[3]
+				} else {
+					dividerProps.animationName = props.animationName[0]
+				}
+			} else {
+				dividerProps.animationName = props.animationName
+			}
+		}
+
+		// Append a possible animationBehaviour property to the subtitle element
+		if (props.animationBehaviour) {
+			if (_.isArray(props.animationBehaviour)) {
+				if (props.animationBehaviour.length >= 4) {
+					dividerProps.animationBehaviour = props.animationBehaviour[3]
+				} else {
+					dividerProps.animationBehaviour = props.animationBehaviour[0]
+				}
+			} else {
+				dividerProps.animationBehaviour = props.animationBehaviour
+			}
+		}
+
+		// Append a possible animationDuration property to the subtitle element
+		if (props.animationDuration) {
+			if (_.isArray(props.animationDuration)) {
+				if (props.animationDuration.length >= 4) {
+					dividerProps.animationDuration = props.animationDuration[3]
+				} else {
+					dividerProps.animationDuration = props.animationDuration[0]
+				}
+			} else {
+				dividerProps.animationDuration = props.animationDuration
+			}
+		}
+
 		return (
-			<Divider { ...mergedProps }>
-				{ element.props.children }
-			</Divider>
+			<Divider { ...dividerProps } />
 		)
 	}
 
@@ -204,52 +505,17 @@ function Header (props: PropTypes) {
 	 * @return      {Object} The molecule with the selected properties
 	 */
 	function _populateLayout (alignment: ComponentAlignment, size: ComponentSize, titleComponent: Object, subtitleComponent: Object | null, glyphComponent: Object | null, dividerComponent: Object | null): Object {
-		let subtitleContainer: Object | null = null
-		let glyphContainer: Object | null = null
-		let dividerContainer: Object | null = null
-
-
-		const titleContainer = (
-			<div className={classNames(styles.titleContainer)}>
-				{ titleComponent }
-			</div>
-		)
-
-		if (subtitleComponent) {
-			subtitleContainer = (
-				<div className={classNames(styles.subtitleContainer)}>
-					{ subtitleComponent }
-				</div>
-			)
-		}
-
-		if (glyphComponent) {
-			glyphContainer = (
-				<div className={classNames(styles.glyphContainer)}>
-					{ glyphComponent }
-				</div>
-			)
-		}
-
-		if (dividerComponent) {
-			dividerContainer = (
-				<div className={classNames(styles.dividerContainer)}>
-					{ dividerComponent }
-				</div>
-			)
-		}
-
 		const _leftAlignedLayout: Function = function (): Object {
 			return (
 				<div>
 					<div className={classNames(styles.leftFlexWrapper)}>
-						{ glyphContainer }
+						{ glyphComponent }
 						<div className={classNames(styles.contentContainer, styles[size])}>
-							{ titleContainer }
-							{ subtitleContainer }
+							{ titleComponent }
+							{ subtitleComponent }
 						</div>
 					</div>
-					{ dividerContainer }
+					{ dividerComponent }
 				</div>
 			)
 		}
@@ -259,12 +525,12 @@ function Header (props: PropTypes) {
 				<div>
 					<div className={classNames(styles.rightFlexWrapper)}>
 						<div className={classNames(styles.contentContainer, styles[size])}>
-							{ titleContainer }
-							{ subtitleContainer }
+							{ titleComponent }
+							{ subtitleComponent }
 						</div>
-						{ glyphContainer }
+						{ glyphComponent }
 					</div>
-					{ dividerContainer }
+					{ dividerComponent }
 				</div>
 			)
 		}
@@ -273,12 +539,12 @@ function Header (props: PropTypes) {
 			return (
 				<div>
 					<div className={classNames(styles.centerFlexWrapper)}>
-						{ glyphContainer }
+						{ glyphComponent }
 						<div className={classNames(styles.contentContainer, styles[size])}>
-							{ titleContainer }
-							{ subtitleContainer }
+							{ titleComponent }
+							{ subtitleComponent }
 						</div>
-						{ dividerContainer }
+						{ dividerComponent }
 					</div>
 				</div>
 			)
@@ -298,17 +564,13 @@ function Header (props: PropTypes) {
 		}
 	}
 
-	const renderElement: any = _getRenderElement(props)
+	const renderElement: Object | null = _getRenderElement(props)
 	// --------------------------------------------------------
 
 	// --------------------------------------------------------
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
-	return (
-		<div className={classNames(styles.header, styles[props.theme], styles[props.device])}>
-			{ renderElement }
-		</div>
-	)
+	return renderElement
 	// --------------------------------------------------------
 }
 

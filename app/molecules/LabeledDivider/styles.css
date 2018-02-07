@@ -1,4 +1,23 @@
 @import '../../styles/themesManager.css';
 
-.labeleddivider {
+.labeleddividerContainer {
+	display: flex;
+	flex-flow: nowrap row;
+	align-items: center;
+
+	& .leftWrapper {
+		flex-grow: 1;
+		display: flex;
+	}
+
+	& .centralWrapper {
+		display: flex;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	& .rightWrapper {
+		flex-grow: 1;
+		display: flex;
+	}
 }

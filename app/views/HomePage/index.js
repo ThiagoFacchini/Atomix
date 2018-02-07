@@ -31,6 +31,7 @@ import Subtitle from './../../atoms/Subtitle'
 import Divider from './../../atoms/Divider'
 import Label from './../../atoms/Label'
 import Header from './../../molecules/Header'
+import LabeledDivider from './../../molecules/LabeledDivider'
 
 
 // --------------------------------------------------------
@@ -184,7 +185,7 @@ export class HomePage extends React.Component<PropTypes> {
 					<br/>
 
 
-					<Header
+					{/* <Header
 						size='md'
 						alignment='center'
 						animationType="bouncing_entrances"
@@ -192,7 +193,7 @@ export class HomePage extends React.Component<PropTypes> {
 						animationBehaviour="animateOnce"
 						animationDuration="short"
 						class={styles.customHeader}
-					>
+					> */}
 						<Title>
 							Homepage
 						</Title>
@@ -211,7 +212,7 @@ export class HomePage extends React.Component<PropTypes> {
 							paddingLeft={0}
 							size='xs'
 						/>
-					</Header>
+					{/* </Header> */}
 
 
 					<br/>
@@ -237,6 +238,33 @@ export class HomePage extends React.Component<PropTypes> {
 							</Label>
 						</div>
 					</FlexCol>
+					<br/><br/>
+					<LabeledDivider
+						theme={this.props.themeManager.theme.get()}
+						device={this.props.themeManager.device.get()}
+						class={styles.customLabelDivider}
+						size='md'
+						animationType='bouncing_entrances'
+						animationName={['bounceInUp', 'bounceInLeft', 'bounceInRight']}
+						animationBehaviour='animateOnce'
+						animationDuration={['medium', 'medium', 'medium']}
+						isSelectable={false}
+						status='success'
+						label='Labeled Divider'
+						labelAlignment='center'
+						labelCapitalization='capitalize'
+						dividerType='solid'
+					/>
+					<Header
+						headerTitle="Header"
+						headerSubtitle="Subtitle and pans"
+						glyphFamily='fontawesome'
+						glyphName='mars-stroke'
+						animationType='bouncing_entrances'
+						animationName={['bounceInUp', 'bounceInLeft', 'bounceInRight', 'bounceInLeft']}
+						animationBehaviour='animateOnce'
+						animationDuration={['medium', 'medium', 'medium', 'veryshort']}
+					/>
 				</FlexRow>
       </div>
 		)

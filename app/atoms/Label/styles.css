@@ -1,12 +1,12 @@
 @import '../../styles/themesManager.css';
 
-.label {
+.labelContainer {
 	display: block;
 	position: relative;
 	width: 100%;
 	overflow: hidden;
 
-	& .content {
+	& .label {
 
 		/* USER SELECTABLE */
 		&.unselectable {

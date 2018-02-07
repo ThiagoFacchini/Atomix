@@ -118,7 +118,7 @@ function Label (props: PropTypes) {
 	function _getLabelComponent (props: Object): Object {
 		return (
 			<div className={classNames(
-				styles.content,
+				styles.label,
 				styles[_getComponentSize(props.size)],
 				styles[_getComponentStatus(props.status)],
 				styles[_getComponentAlignment(props.alignment)],
@@ -252,7 +252,7 @@ function Label (props: PropTypes) {
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
 	return (
-		<div className={classNames(styles.label, styles[props.theme], styles[props.device])}>
+		<div className={classNames(styles.labelContainer, styles[props.theme], styles[props.device])}>
 			{renderElement}
 		</div>
 	)

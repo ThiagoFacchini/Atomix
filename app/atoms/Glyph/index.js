@@ -52,7 +52,7 @@ import justvectorsocial from './libs/justVectorSocial/just-vector-social.css'
 // --------------------------------------------------------
 export type GlyphFamily = 'fontawesome' | 'ionicons' | 'justvectorsocial'
 
-type PropTypes = {
+export type PropTypes = {
 	theme: ?string,
 	device: ?string,
 	class?: Object,
@@ -229,7 +229,6 @@ function Glyph (props: PropTypes) {
 	// --------------------------------------------------------
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
-	console.info('Glyph props are', props)
 	return (
 		<div className={classNames(styles.glyphContainer, styles[props.theme], styles[props.device])}>
 			{renderElement}

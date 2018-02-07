@@ -38,8 +38,29 @@
 }
 
 .customHeader {
-	&.enabled {
-		margin-top: 100px !important;
+	&[class*='glyph'] {
 		color: blue !important;
+	}
+
+	&[class*='divider'] {
+		border-color: blue !important;
+	}
+
+	&[class*='subtitle'] {
+		color: blue !important;
+	}
+
+	&[class*='title'] {
+		color: blue !important;
+	}
+}
+
+.customLabelDivider {
+	&[class*='divider'] {
+		border-color: salmon !important;
+	}
+
+	&[class*='label'] {
+		color: pink !important;
 	}
 }

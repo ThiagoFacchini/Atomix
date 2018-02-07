@@ -27,6 +27,6 @@ export const DEFAULT_COMPONENT_IS_SELECTABLE: boolean = true
 export const DEFAULT_COMPONENT_IS_SELECTABLE_CLASS: string = 'selectable'
 export const DEFAULT_COMPONENT_IS_NOT_SELECTABLE_CLASS: string = 'unselectable'
 export const DEFAULT_COMPONENT_STATUS: ComponentStatus = 'enabled'
+export const DEFAULT_COMPONENT_CAPITALIZATION: ComponentCapitalization = 'none'
 export const DEFAULT_ANIMATION_BEHAVIOUR: AnimationBehaviour = 'animateOnce'
 export const DEFAULT_ANIMATION_DURATION: AnimationDuration = 'short'
-export const DEFAULT_COMPONENT_CAPITALIZATION: ComponentCapitalization = 'none'

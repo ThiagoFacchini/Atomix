@@ -50,13 +50,13 @@ import styles from './styles.css'
 // --------------------------------------------------------
 export type DividerTypes = 'solid' | 'dotted' | 'dashed'| 'ridge'
 
-const DEFAULT_TYPE: DividerTypes = 'solid'
+export const DEFAULT_TYPE: DividerTypes = 'solid'
 
-type PropTypes = {
-	theme: ?string,
-	device: ?string,
+export type PropTypes = {
+	theme?: string,
+	device?: string,
 	class?: Object,
-	type: ?DividerTypes,
+	type?: DividerTypes,
 	size?: ComponentSize,
 	animationType?: AnimationType,
 	animationName?: string,
@@ -99,7 +99,7 @@ function Divider (props: PropTypes) {
 				</Animator>
 			)
 		} else {
-			return _getDividerComponent(props.class)
+			return _getDividerComponent(props)
 		}
 	}
 
@@ -140,7 +140,7 @@ function Divider (props: PropTypes) {
 		}
 		return (
 			<div style={ dividerStyle } className={classNames(
-				styles.content,
+				styles.divider,
 				styles[_getComponentSize(props.size)],
 				styles[_getComponentStatus(props.status)],
 				_getUserCustomClass(props.class)
@@ -195,7 +195,7 @@ function Divider (props: PropTypes) {
 	// REACT RETURN FUNCTION
 	// --------------------------------------------------------
 	return (
-		<div className={classNames(styles.divider, styles[props.theme], styles[props.device])}>
+		<div className={classNames(styles.dividerContainer, styles[props.theme], styles[props.device])}>
 			{renderElement}
 		</div>
 	)
