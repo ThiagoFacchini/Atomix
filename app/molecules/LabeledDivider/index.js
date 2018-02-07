@@ -20,10 +20,6 @@ import Divider from '../../atoms/Divider'
 import Label from '../../atoms/Label'
 
 import type {
-	DividerTypes
-} from '../../atoms/Divider'
-
-import type {
 	AnimationType,
 	AnimationBehaviour,
 	AnimationDuration
@@ -35,6 +31,14 @@ import type {
 	ComponentStatus,
 	ComponentCapitalization
 } from '../../neutrons/Types'
+
+import type {
+	PropTypes as LabelType
+} from '../../atoms/Label'
+
+import type {
+	PropTypes as DividerType
+} from '../../atoms/Divider'
 
 import {
 	DEFAULT_THEME,
@@ -71,7 +75,7 @@ type PropTypes = {
 	label: string,
 	labelAlignment?: ComponentAlignment,
 	labelCapitalization?: ComponentCapitalization,
-	dividerType?: DividerTypes
+	dividerType?: DividerType
 }
 // --------------------------------------------------------
 
@@ -141,7 +145,8 @@ function LabeledDivider (props: PropTypes) {
 	 * @return      {ReactComponent} Label component
 	 */
 	function _getLabelElement (props: Object): Object {
-		const labelElementProps = {
+		const labelElementProps: LabelType = {
+			children: undefined,
 			theme: props.theme,
 			device: props.device,
 			class: undefined,
@@ -230,7 +235,7 @@ function LabeledDivider (props: PropTypes) {
 			animationArrPos = 2
 			dividerCssClass = styles.rightWrapper
 		}
-		const dividerProps = {
+		const dividerProps: DividerType = {
 			theme: props.theme,
 			device: props.device,
 			class: undefined,

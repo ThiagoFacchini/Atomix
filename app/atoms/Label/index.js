@@ -56,7 +56,7 @@ import styles from './styles.css'
 // --------------------------------------------------------
 // ATOM PROPERTIES DEFINITION
 // --------------------------------------------------------
-type PropTypes = {
+export type PropTypes = {
 	children: ?any,
 	theme: ?string,
 	device: ?string,
